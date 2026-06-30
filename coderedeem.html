@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Lucky Code Redeem</title>
+
+<link rel="stylesheet"
+href="coderedeem.css">
+
+<link rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- HEADER -->
+
+<div class="header">
+
+<a href="dashboard.html"
+class="backBtn">
+
+<i class="fa-solid fa-arrow-left"></i>
+
+</a>
+
+<div>
+
+<h2>Lucky Code</h2>
+
+<p>Redeem today's reward code</p>
+
+</div>
+
+</div>
+
+<!-- HERO -->
+
+<div class="heroCard">
+
+<div class="gift">
+
+<i class="fa-solid fa-gift"></i>
+
+</div>
+
+<h2>🎉 Daily Lucky Code</h2>
+
+<p>
+
+Get rewarded when you're among the first lucky winners.
+
+</p>
+
+</div>
+
+<!-- STATS -->
+
+<div class="stats">
+
+<div class="statCard">
+
+<h3 id="rewardAmount">
+
+Loading...
+
+</h3>
+
+<p>Reward</p>
+
+</div>
+
+<div class="statCard">
+
+<h3 id="remainingSlots">
+
+Loading...
+
+</h3>
+
+<p>Remaining</p>
+
+</div>
+
+</div>
+
+<!-- REDEEM CARD -->
+
+<div class="redeemCard">
+
+<h3>
+
+Enter Lucky Code
+
+</h3>
+
+<p>
+
+Copy today's code from the official Data365 Channel.
+
+</p>
+
+<input
+type="text"
+id="codeInput"
+placeholder="Enter Lucky Code">
+
+<button
+id="redeemBtn">
+
+Redeem Now
+
+</button>
+
+</div>
+<!-- REDEMPTION STATUS -->
+
+<div class="statusCard">
+
+<h3>
+
+Your Last Redemption
+
+</h3>
+
+<div id="lastRedeem">
+
+<p>
+
+You haven't redeemed any lucky code yet.
+
+</p>
+
+</div>
+
+</div>
+
+<!-- RULES -->
+
+<div class="rulesCard">
+
+<h3>
+
+Lucky Code Rules
+
+</h3>
+
+<ul>
+
+<li>
+🎁 Each successful code rewards the specified MB amount.
+</li>
+
+<li>
+👥 Only the first <strong>10 users</strong> can redeem today's code.
+</li>
+
+<li>
+⛔ Each account can redeem a lucky code only once.
+</li>
+
+<li>
+📢 A new lucky code is posted daily on the official Data365 Channel.
+</li>
+
+<li>
+❌ Once all redemption slots are used, the code automatically expires.
+</li>
+
+</ul>
+
+</div>
+
+<!-- LOADING -->
+
+<div class="loading" id="loading">
+
+<div class="loader"></div>
+
+<p>Checking Lucky Code...</p>
+
+</div>
+
+<!-- SUCCESS POPUP -->
+
+<div class="popup" id="successPopup">
+
+<div class="popupContent">
+
+<div class="successIcon">
+
+<i class="fa-solid fa-circle-check"></i>
+
+</div>
+
+<h2>Congratulations!</h2>
+
+<p id="popupMessage">
+
+100MB has been added to your account.
+
+</p>
+
+<button id="closePopup">
+
+Awesome!
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<script type="module" src="coderedeem.js"></script>
+
+</body>
+
+</html>

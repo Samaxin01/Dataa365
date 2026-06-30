@@ -1,0 +1,597 @@
+/* =====================================
+   DATA365 CUSTOMER SERVICE
+===================================== */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+:root{
+
+--primary:#6C3BFF;
+--primaryLight:#8E6CFF;
+--background:#F5F7FB;
+--card:#FFFFFF;
+--text:#1F2937;
+--sub:#6B7280;
+--border:#ECECEC;
+--shadow:0 12px 28px rgba(0,0,0,.08);
+
+}
+
+body{
+
+background:var(--background);
+color:var(--text);
+padding-bottom:100px;
+
+}
+
+.app{
+
+max-width:600px;
+margin:auto;
+padding:20px;
+animation:fade .35s ease;
+
+}
+
+@keyframes fade{
+
+from{
+
+opacity:0;
+transform:translateY(15px);
+
+}
+
+to{
+
+opacity:1;
+transform:none;
+
+}
+
+}
+
+/* ==========================
+HEADER
+========================== */
+
+.header{
+
+display:flex;
+align-items:center;
+gap:15px;
+margin-bottom:25px;
+
+}
+
+.backBtn{
+
+width:46px;
+height:46px;
+border-radius:50%;
+background:white;
+display:flex;
+align-items:center;
+justify-content:center;
+text-decoration:none;
+color:var(--primary);
+box-shadow:var(--shadow);
+
+}
+
+.header h2{
+
+font-size:24px;
+font-weight:700;
+
+}
+
+.header p{
+
+font-size:13px;
+color:var(--sub);
+
+}
+
+/* ==========================
+WELCOME CARD
+========================== */
+
+.welcomeCard{
+
+background:linear-gradient(
+135deg,
+var(--primary),
+var(--primaryLight)
+);
+
+color:white;
+padding:28px;
+border-radius:25px;
+text-align:center;
+box-shadow:0 18px 35px rgba(108,59,255,.30);
+margin-bottom:25px;
+
+}
+
+.welcomeCard i{
+
+font-size:55px;
+margin-bottom:18px;
+
+}
+
+.welcomeCard h2{
+
+font-size:24px;
+margin-bottom:12px;
+
+}
+
+.welcomeCard p{
+
+font-size:14px;
+line-height:1.7;
+opacity:.95;
+
+}
+
+/* ==========================
+CONTACT CARD
+========================== */
+
+.contactCard{
+
+background:white;
+padding:22px;
+border-radius:22px;
+box-shadow:var(--shadow);
+margin-bottom:22px;
+
+}
+
+.contactCard h3{
+
+display:flex;
+align-items:center;
+gap:10px;
+color:var(--primary);
+margin-bottom:20px;
+
+}
+
+.contactItem{
+
+display:flex;
+align-items:center;
+justify-content:space-between;
+text-decoration:none;
+padding:16px;
+border-radius:18px;
+background:#FAFAFA;
+margin-bottom:15px;
+transition:.25s;
+
+}
+
+.contactItem:hover{
+
+transform:translateY(-2px);
+background:#F3EDFF;
+
+}
+
+.contactItem>i:first-child{
+
+font-size:24px;
+color:var(--primary);
+width:40px;
+text-align:center;
+
+}
+
+.contactItem div{
+
+flex:1;
+margin-left:15px;
+
+}
+
+.contactItem h4{
+
+color:var(--text);
+margin-bottom:4px;
+
+}
+
+.contactItem p{
+
+color:var(--sub);
+font-size:13px;
+
+}
+
+.contactItem>i:last-child{
+
+color:var(--sub);
+
+}
+
+/* ==========================
+FAQ CARD
+========================== */
+
+.faqCard{
+
+background:white;
+padding:22px;
+border-radius:22px;
+box-shadow:var(--shadow);
+margin-bottom:22px;
+
+}
+
+.faqCard h3{
+
+color:var(--primary);
+margin-bottom:20px;
+
+}
+
+.faqItem{
+
+padding:15px 0;
+border-bottom:1px solid var(--border);
+
+}
+
+.faqItem:last-child{
+
+border-bottom:none;
+
+}
+
+.faqItem h4{
+
+font-size:15px;
+margin-bottom:8px;
+
+}
+
+.faqItem p{
+
+font-size:14px;
+color:var(--sub);
+line-height:1.6;
+
+}
+/* ==========================
+MESSAGE FORM
+========================== */
+
+.messageCard{
+
+background:white;
+padding:22px;
+border-radius:22px;
+box-shadow:var(--shadow);
+margin-bottom:22px;
+
+}
+
+.messageCard h3{
+
+display:flex;
+align-items:center;
+gap:10px;
+color:var(--primary);
+margin-bottom:20px;
+
+}
+
+.inputGroup{
+
+margin-bottom:18px;
+
+}
+
+.inputGroup label{
+
+display:block;
+font-size:14px;
+font-weight:600;
+margin-bottom:8px;
+
+}
+
+.inputGroup input,
+.inputGroup textarea{
+
+width:100%;
+padding:15px;
+border:2px solid var(--border);
+border-radius:15px;
+font-size:15px;
+background:#FAFAFA;
+outline:none;
+transition:.25s;
+
+}
+
+.inputGroup input:focus,
+.inputGroup textarea:focus{
+
+border-color:var(--primary);
+background:white;
+
+}
+
+.inputGroup textarea{
+
+resize:none;
+min-height:140px;
+
+}
+
+/* ==========================
+SEND BUTTON
+========================== */
+
+#sendBtn{
+
+width:100%;
+padding:16px;
+border:none;
+border-radius:16px;
+background:linear-gradient(
+135deg,
+var(--primary),
+var(--primaryLight)
+);
+
+color:white;
+font-size:16px;
+font-weight:600;
+cursor:pointer;
+display:flex;
+justify-content:center;
+align-items:center;
+gap:10px;
+transition:.25s;
+box-shadow:0 15px 30px rgba(108,59,255,.25);
+
+}
+
+#sendBtn:hover{
+
+transform:translateY(-2px);
+
+}
+
+#sendBtn:disabled{
+
+opacity:.7;
+cursor:not-allowed;
+transform:none;
+
+}
+
+/* ==========================
+LOADING
+========================== */
+
+.loadingOverlay{
+
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(255,255,255,.95);
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+z-index:9999;
+
+}
+
+.loader{
+
+width:60px;
+height:60px;
+border:6px solid #ECECEC;
+border-top:6px solid var(--primary);
+border-radius:50%;
+animation:spin .8s linear infinite;
+margin-bottom:18px;
+
+}
+
+@keyframes spin{
+
+100%{
+
+transform:rotate(360deg);
+
+}
+
+}
+
+/* ==========================
+TOAST
+========================== */
+
+.toast{
+
+position:fixed;
+left:50%;
+bottom:90px;
+transform:translateX(-50%) translateY(120px);
+background:var(--primary);
+color:white;
+padding:14px 24px;
+border-radius:50px;
+display:flex;
+align-items:center;
+gap:10px;
+box-shadow:var(--shadow);
+transition:.35s;
+z-index:99999;
+
+}
+
+.toast.show{
+
+transform:translateX(-50%) translateY(0);
+
+}
+
+/* ==========================
+BOTTOM NAVIGATION
+========================== */
+
+.bottomNav{
+
+position:fixed;
+bottom:0;
+left:50%;
+transform:translateX(-50%);
+width:100%;
+max-width:600px;
+background:white;
+display:flex;
+justify-content:space-around;
+padding:12px 0;
+border-radius:22px 22px 0 0;
+box-shadow:0 -5px 20px rgba(0,0,0,.08);
+
+}
+
+.bottomNav a{
+
+text-decoration:none;
+display:flex;
+flex-direction:column;
+align-items:center;
+gap:5px;
+font-size:12px;
+color:var(--sub);
+transition:.25s;
+
+}
+
+.bottomNav a i{
+
+font-size:20px;
+
+}
+
+.bottomNav a.active{
+
+color:var(--primary);
+font-weight:600;
+
+}
+
+/* ==========================
+FOOTER
+========================== */
+
+footer{
+
+text-align:center;
+margin:30px 0 15px;
+font-size:13px;
+color:var(--sub);
+
+}
+
+/* ==========================
+DARK MODE
+========================== */
+
+body.dark{
+
+--background:#0F172A;
+--card:#1E293B;
+--text:#F8FAFC;
+--sub:#CBD5E1;
+--border:#334155;
+
+}
+
+body.dark .backBtn,
+body.dark .contactCard,
+body.dark .faqCard,
+body.dark .messageCard,
+body.dark .bottomNav{
+
+background:var(--card);
+color:var(--text);
+
+}
+
+body.dark .inputGroup input,
+body.dark .inputGroup textarea{
+
+background:#334155;
+border-color:#475569;
+color:white;
+
+}
+
+body.dark .loadingOverlay{
+
+background:rgba(15,23,42,.95);
+
+}
+
+/* ==========================
+RESPONSIVE
+========================== */
+
+@media(max-width:600px){
+
+.welcomeCard{
+
+padding:22px;
+
+}
+
+.contactItem{
+
+padding:14px;
+
+}
+
+}
+
+/* ==========================
+SCROLLBAR
+========================== */
+
+::-webkit-scrollbar{
+
+width:6px;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+background:var(--primary);
+border-radius:20px;
+
+}
+
+::-webkit-scrollbar-track{
+
+background:transparent;
+
+}

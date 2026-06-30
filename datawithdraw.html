@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Withdraw USD</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+:root{
+
+--primary:#6C3BFF;
+--primaryLight:#8E6CFF;
+--background:#F5F7FB;
+--card:#FFFFFF;
+--text:#1F2937;
+--sub:#6B7280;
+--border:#ECECEC;
+--shadow:0 15px 35px rgba(108,59,255,.12);
+
+}
+
+body{
+
+background:var(--background);
+color:var(--text);
+
+}
+
+.container{
+
+max-width:430px;
+margin:auto;
+padding:20px;
+animation:fade .35s ease;
+
+}
+
+@keyframes fade{
+
+from{
+
+opacity:0;
+transform:translateY(20px);
+
+}
+
+to{
+
+opacity:1;
+transform:none;
+
+}
+
+}
+
+h2{
+
+font-size:28px;
+font-weight:700;
+margin-bottom:20px;
+color:var(--primary);
+
+}
+
+.card{
+
+background:var(--card);
+border-radius:22px;
+padding:22px;
+margin-bottom:18px;
+box-shadow:var(--shadow);
+
+}
+
+.card h3{
+
+margin-bottom:18px;
+color:var(--primary);
+
+}
+
+#balanceMB{
+
+font-size:28px;
+font-weight:700;
+color:var(--primary);
+
+}
+
+input,
+select{
+
+width:100%;
+margin-top:14px;
+padding:15px;
+border:2px solid var(--border);
+border-radius:15px;
+font-size:15px;
+background:#FAFAFA;
+outline:none;
+transition:.25s;
+
+}
+
+input:focus,
+select:focus{
+
+border-color:var(--primary);
+background:white;
+
+}
+
+.btn{
+
+margin-top:20px;
+width:100%;
+padding:16px;
+background:linear-gradient(
+135deg,
+var(--primary),
+var(--primaryLight)
+);
+color:white;
+border-radius:16px;
+text-align:center;
+font-size:16px;
+font-weight:600;
+cursor:pointer;
+transition:.25s;
+box-shadow:0 15px 30px rgba(108,59,255,.25);
+
+}
+
+.btn:hover{
+
+transform:translateY(-2px);
+
+}
+
+.btn.loading{
+
+opacity:.6;
+pointer-events:none;
+
+}
+
+.history{
+
+display:flex;
+flex-direction:column;
+gap:15px;
+
+}
+
+.historyItem{
+
+background:#F9F7FF;
+border-left:5px solid var(--primary);
+padding:16px;
+border-radius:16px;
+
+}
+
+.historyItem h4{
+
+margin-bottom:8px;
+color:var(--primary);
+
+}
+
+.historyItem p{
+
+font-size:14px;
+color:var(--sub);
+margin:4px 0;
+
+}
+
+.status{
+
+display:inline-block;
+padding:6px 14px;
+border-radius:20px;
+font-size:12px;
+font-weight:600;
+margin-top:10px;
+
+}
+
+.pending{
+
+background:#FFF7E5;
+color:#D97706;
+
+}
+
+.approved{
+
+background:#E8FFF1;
+color:#16A34A;
+
+}
+
+.rejected{
+
+background:#FFEAEA;
+color:#DC2626;
+
+}
+
+::-webkit-scrollbar{
+
+width:6px;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+background:var(--primary);
+border-radius:20px;
+
+}
+
+@media(max-width:500px){
+
+.container{
+
+padding:15px;
+
+}
+
+.card{
+
+padding:18px;
+
+}
+
+h2{
+
+font-size:24px;
+
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Withdraw USD</h2>
+
+<!-- BALANCE -->
+<div class="card">
+    <div>USD Balance: MB<span id="balanceMB">loading...</span></div>
+</div>
+
+<!-- FORM -->
+<div class="card">
+
+    <select id="bank">
+        <option value="">Select Bank</option>
+        <option>Opay</option>
+        <option>Palmpay</option>
+        <option>Moniepoint</option>
+    </select>
+
+    <input type="text" id="accNumber" placeholder="Account Number">
+    <input type="text" id="accName" placeholder="Account Name">
+    <input type="number" id="amount" placeholder="Amount ($)">
+
+    <div class="btn" id="btn" onclick="withdraw()">Withdraw</div>
+
+</div>
+
+<!-- HISTORY -->
+<div class="card">
+    <h3>Withdrawal History</h3>
+    <div id="history"></div>
+</div>
+
+</div>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+import { 
+    getFirestore, doc, onSnapshot, updateDoc, arrayUnion, increment 
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+// 🔥 FIREBASE CONFIG
+const app = initializeApp({
+    apiKey: "AIzaSyDKDO_xhyOpMIw_z-FWiubqeBcQdPcpbHY",
+    authDomain: "data365-98916.firebaseapp.com",
+    projectId: "data365-98916",
+});
+
+const auth = getAuth(app);
+const db = getFirestore(app);
+
+let userRef, userData;
+
+// 🔄 AUTH
+onAuthStateChanged(auth, (user) => {
+
+    if (!user) {
+        window.location.href = "login.html";
+        return;
+    }
+
+    userRef = doc(db, "users", user.uid);
+
+    onSnapshot(userRef, (snap) => {
+
+        if (!snap.exists()) return;
+
+        userData = snap.data();
+
+        document.getElementById("balanceMB").innerText =
+            (userData.balanceMB || 0).toFixed(0);
+
+        renderHistory();
+
+    });
+
+});
+
+// 💸 WITHDRAW FUNCTION
+window.withdraw = async function () {
+
+    const btn = document.getElementById("btn");
+
+    const amount = parseFloat(document.getElementById("amount").value);
+    const bank = document.getElementById("bank").value;
+    const accNumber = document.getElementById("accNumber").value;
+    const accName = document.getElementById("accName").value;
+
+    if (!amount || amount <= 0) return alert("Enter valid amount");
+    if (!bank) return alert("Select bank");
+    if (!accNumber || !accName) return alert("Fill all fields");
+
+    if (amount > (userData.balanceMB || 0)) {
+        return alert("Insufficient balance");
+    }
+
+    btn.classList.add("loading");
+    btn.innerText = "Processing...";
+
+    const request = {
+        id: Date.now().toString(),
+        amount,
+        bank,
+        accountNumber: accNumber,
+        accountName: accName,
+        status: "Pending",
+        date: Date.now(),
+        processedDate: null
+    };
+
+    try {
+
+        await updateDoc(userRef, {
+            balanceMB: increment(-amount),
+            withdrawHistory: arrayUnion(request)
+        });
+
+        document.getElementById("amount").value = "";
+        document.getElementById("accNumber").value = "";
+        document.getElementById("accName").value = "";
+
+        alert("✅ Withdrawal submitted!");
+
+    } catch (err) {
+        console.error(err);
+        alert("Error occurred");
+    }
+
+    btn.classList.remove("loading");
+    btn.innerText = "Withdraw";
+};
+
+// 📊 HISTORY DISPLAY
+function renderHistory() {
+
+    let html = "";
+
+    (userData.withdrawHistory || []).slice().reverse().forEach(w => {
+
+        html += `
+        <div class="history">
+            <strong>$${w.amount}</strong> - ${w.status} <br>
+            ${w.bank} | ${w.accountNumber}<br>
+
+            <small>
+            Requested: ${new Date(w.date).toLocaleString()}<br>
+            ${w.processedDate 
+                ? "Processed: " + new Date(w.processedDate).toLocaleString() 
+                : "Processing..."}
+            </small>
+        </div>
+        <hr>
+        `;
+    });
+
+    document.getElementById("history").innerHTML = html;
+}
+</script>
+
+</body>
+</html>

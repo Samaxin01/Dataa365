@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Data365 Dashboard</title>
+
+<link rel="stylesheet" href="dashboard.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+<!-- APP CONTAINER -->
+
+<div class="app">
+
+    <!-- HEADER -->
+
+    <header class="header">
+
+        <div class="user-section">
+
+            <div class="avatar" id="avatar">
+                D
+            </div>
+
+            <div>
+
+                <h3 id="greeting">
+                    Good Morning
+                </h3>
+
+                <p id="username">
+                    Loading...
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="header-icons">
+
+            <!-- Notification -->
+
+            <a href="notifications.html" class="icon-btn">
+
+                <svg viewBox="0 0 24 24" fill="none">
+                    <path d="M18 8A6 6 0 0 0 6 8V13L4 16H20L18 13V8Z"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"/>
+
+                    <path d="M10 20C10.5 21 11.2 21.5 12 21.5C12.8 21.5 13.5 21 14 20"
+                    stroke="currentColor"
+                    stroke-width="2"/>
+                </svg>
+
+            </a>
+
+            <!-- Settings -->
+
+            <a href="settings.html" class="icon-btn">
+
+                <svg viewBox="0 0 24 24" fill="none">
+
+                    <circle cx="12" cy="12" r="3"
+                    stroke="currentColor"
+                    stroke-width="2"/>
+
+                    <path d="M19.4 15
+                    A1.65 1.65 0 0 0 19.73 16.82
+                    L19.79 16.88
+                    A2 2 0 1 1 16.96 19.71
+                    L16.9 19.65
+                    A1.65 1.65 0 0 0 15.09 19.32
+                    A1.65 1.65 0 0 0 14 20.85
+                    V21
+                    A2 2 0 1 1 10 21
+                    V20.85
+                    A1.65 1.65 0 0 0 8.91 19.32
+                    A1.65 1.65 0 0 0 7.1 19.65
+                    L7.04 19.71
+                    A2 2 0 1 1 4.21 16.88
+                    L4.27 16.82
+                    A1.65 1.65 0 0 0 4.6 15
+                    A1.65 1.65 0 0 0 3 14
+                    H2.85
+                    A2 2 0 1 1 2.85 10
+                    H3
+                    A1.65 1.65 0 0 0 4.6 9
+                    A1.65 1.65 0 0 0 4.27 7.18
+                    L4.21 7.12
+                    A2 2 0 1 1 7.04 4.29
+                    L7.1 4.35
+                    A1.65 1.65 0 0 0 8.91 4.68
+                    A1.65 1.65 0 0 0 10 3.15
+                    V3
+                    A2 2 0 1 1 14 3
+                    V3.15
+                    A1.65 1.65 0 0 0 15.09 4.68
+                    A1.65 1.65 0 0 0 16.9 4.35
+                    L16.96 4.29
+                    A2 2 0 1 1 19.79 7.12
+                    L19.73 7.18
+                    A1.65 1.65 0 0 0 19.4 9
+                    A1.65 1.65 0 0 0 21 10
+                    H21.15
+                    A2 2 0 1 1 21.15 14
+                    H21
+                    A1.65 1.65 0 0 0 19.4 15Z"
+                    stroke="currentColor"
+                    stroke-width="1.5"/>
+
+                </svg>
+
+            </a>
+
+            <!-- Telegram Support -->
+
+            <a href="https://t.me/YOUR_USERNAME"
+               target="_blank"
+               class="icon-btn">
+
+                <svg viewBox="0 0 24 24" fill="none">
+
+                    <path d="M22 2L11 13"
+                    stroke="currentColor"
+                    stroke-width="2"/>
+
+                    <path d="M22 2L15 22L11 13L2 9L22 2Z"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linejoin="round"/>
+
+                </svg>
+
+            </a>
+
+        </div>
+
+    </header>
+
+    <!-- BALANCE CARD -->
+
+    <section class="balance-card">
+
+        <div class="balance-top">
+
+            <span>DATA BALANCE</span>
+
+        </div>
+
+        <h1 id="balance">
+            Loading...
+        </h1>
+
+        <p id="balanceGB">
+            loading...
+        </p>
+
+        <small id="joinedDate">
+            Joined Today
+        </small>
+
+        <button
+            onclick="location.href='withdraw.html'"
+            class="withdraw-btn">
+
+            Withdraw Data
+
+        </button>
+
+    </section>
+
+    <!-- QUICK STATS -->
+
+    <section class="stats-grid">
+
+        <div class="stat-card">
+            <h2 id="completedTasks">0</h2>
+            <p>Completed Tasks</p>
+        </div>
+
+        <div class="stat-card">
+            <h2 id="pendingTasks">0</h2>
+            <p>Pending Review</p>
+        </div>
+
+        <div class="stat-card">
+            <h2 id="referrals">0</h2>
+            <p>Referrals</p>
+        </div>
+
+        <div class="stat-card">
+            <h2 id="earned">0MB</h2>
+            <p>Total Earned</p>
+        </div>
+
+    </section>
+
+    <!-- REFERRAL CARD -->
+
+    <section class="referral-card">
+
+        <h3>
+            Earn 40MB Per Referral
+        </h3>
+
+        <div id="referralCode">
+            LOADING...
+        </div>
+
+        <button id="copyReferral">
+            Copy Referral Link
+        </button>
+
+    </section>
+
+    <!-- ANNOUNCEMENT -->
+
+    <section class="announcement-card">
+
+        <h3>
+            📢 Data365🟣
+        </h3>
+
+        <p id="announcement">
+            Welcome to Data365 🟣
+Your smart space to complete simple tasks and earn data rewards. Start exploring tasks, stay active, and unlock daily bonuses just for being consistent 🚀
+        </p>
+
+    </section>
+
+        <!-- ANNOUNCEMENT -->
+
+    <section class="announcement-card">
+
+        <h3>
+            🔥 Launch Announcement
+        </h3>
+
+        <p id="announcement">
+🚀 Data365 is Live! Welcome to a new way to earn data and rewards by completing simple daily tasks. Start completing tasks, earn points, and redeem amazing rewards instantly.
+        </p>
+
+    </section>
+
+
+
+   
+
+    <!-- ANNOUNCEMENT -->
+
+    <section class="announcement-card">
+
+        <h3>
+🎯 Task Update Announcement
+        </h3>
+
+        <p id="announcement">
+📊 New Tasks Added! Fresh tasks are now available on Data365. Complete them early to earn more rewards before they get full.
+        </p>
+
+    </section>
+
+
+    <!-- ANNOUNCEMENT -->
+
+    <section class="announcement-card">
+
+        <h3>
+💰 Reward Update
+        </h3>
+
+        <p id="announcement">
+🎁 Bigger Rewards Available! We’ve increased task rewards for a limited time. This is your chance to earn more data and cash faster 💜
+        </p>
+
+    </section>
+
+
+    <!-- ANNOUNCEMENT -->
+
+    <section class="announcement-card">
+
+        <h3>
+👥 Referral Bonus Alert
+        </h3>
+
+        <p id="announcement">
+👥 Invite & Earn More! Invite your friends to Data365 and earn bonus rewards when they sign up and complete their first task.
+        </p>
+
+    </section>
+
+     
+       <!-- ANNOUNCEMENT -->
+
+    <section class="announcement-card">
+
+        <h3>
+🔐 Safety Notice
+        </h3>
+
+        <p id="announcement">
+🔒 Stay Safe Never share your account details. Data365 will never ask for your password.
+        </p>
+
+    </section>
+
+
+    <!-- DATE & TIME -->
+
+    <section class="time-card">
+
+        <h3 id="currentDate">
+            Loading...
+        </h3>
+
+        <h2 id="currentTime">
+            00:00:00
+        </h2>
+
+    </section>
+
+</div>
+
+<!-- BOTTOM NAVIGATION -->
+
+<nav class="bottom-nav">
+
+    <a href="/dashboard" class="active">
+
+        <svg viewBox="0 0 24 24">
+            <path d="M3 10L12 3L21 10V21H3Z"
+            fill="currentColor"/>
+        </svg>
+
+        <span>Home</span>
+
+    </a>
+
+    <a href="/tasks">
+
+        <svg viewBox="0 0 24 24">
+            <path d="M8 6H21M8 12H21M8 18H21"
+            stroke="currentColor"
+            stroke-width="2"/>
+        </svg>
+
+        <span>Tasks</span>
+
+    </a>
+
+    <a href="/refer">
+
+        <svg viewBox="0 0 24 24">
+            <path d="M16 21V19A4 4 0 0 0 12 15H5A4 4 0 0 0 1 19V21"
+            stroke="currentColor"
+            stroke-width="2"/>
+
+            <circle cx="8.5" cy="7" r="4"
+            stroke="currentColor"
+            stroke-width="2"/>
+        </svg>
+
+        <span>Refer</span>
+
+    </a>
+
+    <a href="/profile">
+
+        <svg viewBox="0 0 24 24">
+
+            <circle cx="12" cy="8" r="4"
+            stroke="currentColor"
+            stroke-width="2"/>
+
+            <path d="M4 21C4 17 7 15 12 15C17 15 20 17 20 21"
+            stroke="currentColor"
+            stroke-width="2"/>
+
+        </svg>
+
+        <span>Profile</span>
+
+    </a>
+
+</nav>
+
+<script type="module" src="dashboard.js"></script>
+<script>
+
+// SHOW AFTER 1 SECOND
+
+// setTimeout(() => {
+
+    document
+    .getElementById("popup")
+    .classList.add("show");
+
+},1000);
+
+
+// CLOSE
+
+function closePopup(){
+
+    document
+    .getElementById("popup")
+    .classList.remove("show");
+
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Admin Task Reviews | Data365</title>
+
+<link rel="stylesheet"
+href="admintasks.css">
+
+<link rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="app">
+
+<header class="top-header">
+
+<div>
+
+<h2>Task Reviews</h2>
+
+<p>Pending User Submissions</p>
+
+</div>
+
+<div class="admin-badge">
+
+<i class="fa-solid fa-shield-halved"></i>
+
+<span>ADMIN</span>
+
+</div>
+
+</header>
+
+<div class="stats-grid">
+
+<div class="stat-card">
+
+<h3 id="pendingCount">
+
+0
+
+</h3>
+
+<p>Pending</p>
+
+</div>
+
+<div class="stat-card">
+
+<h3 id="approvedToday">
+
+0
+
+</h3>
+
+<p>Approved Today</p>
+
+</div>
+
+<div class="stat-card">
+
+<h3 id="rejectedToday">
+
+0
+
+</h3>
+
+<p>Rejected Today</p>
+
+</div>
+
+</div>
+
+<div class="search-box">
+
+<i class="fa-solid fa-magnifying-glass"></i>
+
+<input
+type="text"
+id="searchInput"
+placeholder="Search email...">
+
+</div>
+
+<div
+id="loadingState"
+class="loading-state">
+
+<div class="spinner"></div>
+
+<p>
+
+Loading pending reviews...
+
+</p>
+
+</div>
+
+<div
+id="emptyState"
+class="empty-state"
+style="display:none;">
+
+<i class="fa-regular fa-circle-check"></i>
+
+<h3>
+
+No Pending Reviews
+
+</h3>
+
+<p>
+
+Everything has been reviewed.
+
+</p>
+
+</div>
+
+<div
+id="reviewContainer">
+
+<!-- Firebase loads cards here -->
+
+<!-- Example Card -->
+
+
+
+<div class="review-card">
+
+<div class="top">
+
+<div class="avatar">
+
+S
+
+</div>
+
+<div>
+
+<h3>
+
+Samaxin
+
+</h3>
+
+<p>
+
+sam@gmail.com
+
+</p>
+
+</div>
+
+</div>
+
+<div class="body">
+
+<div class="row">
+
+<span>
+
+Task
+
+</span>
+
+<strong>
+
+Join WhatsApp Channel
+
+</strong>
+
+</div>
+
+<div class="row">
+
+<span>
+
+Reward
+
+</span>
+
+<strong>
+
+40MB
+
+</strong>
+
+</div>
+
+<div class="row">
+
+<span>
+
+Submitted
+
+</span>
+
+<strong>
+
+26 Jun 2026
+
+</strong>
+
+</div>
+
+<div class="status pending">
+
+Pending
+
+</div>
+
+</div>
+
+<div class="buttons">
+
+<button
+class="approve">
+
+<i class="fa-solid fa-check"></i>
+
+Approve
+
+</button>
+
+<button
+class="reject">
+
+<i class="fa-solid fa-xmark"></i>
+
+Reject
+
+</button>
+
+</div>
+
+</div>
+
+
+</div>
+
+<!-- Approve/Reject Confirmation Modal -->
+<div id="confirmModal" class="modal">
+
+    <div class="modal-content">
+
+        <div class="modal-icon">
+            <i class="fa-solid fa-circle-question"></i>
+        </div>
+
+        <h2 id="confirmTitle">
+            Confirm Action
+        </h2>
+
+        <p id="confirmMessage">
+            Are you sure you want to continue?
+        </p>
+
+        <div class="modal-buttons">
+
+            <button
+                id="cancelAction"
+                class="cancel-btn">
+
+                Cancel
+
+            </button>
+
+            <button
+                id="confirmAction"
+                class="confirm-btn">
+
+                Continue
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- Loading Overlay -->
+
+<div
+id="loadingOverlay"
+class="loading-overlay">
+
+    <div class="loader"></div>
+
+    <h3>
+
+        Updating Task...
+
+    </h3>
+
+    <p>
+
+        Please wait a moment.
+
+    </p>
+
+</div>
+
+
+<!-- Toast Notification -->
+
+<div
+id="toast"
+class="toast">
+
+    <i class="fa-solid fa-circle-check"></i>
+
+    <span
+    id="toastText">
+
+        Success
+
+    </span>
+
+</div>
+
+
+<footer>
+
+    <p>
+
+        Data365 Admin Panel
+
+    </p>
+
+</footer>
+
+
+</div>
+
+
+<script
+type="module"
+src="admintasks.js">
+
+</script>
+
+</body>
+
+</html>

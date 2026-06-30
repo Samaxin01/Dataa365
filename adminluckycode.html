@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Admin Lucky Codes</title>
+
+<link rel="stylesheet" href="adminluckycode.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- HEADER -->
+
+<div class="header">
+
+<a href="adminallinone.html" class="backBtn">
+
+<i class="fa-solid fa-arrow-left"></i>
+
+</a>
+
+<div>
+
+<h2>Lucky Codes</h2>
+
+<p>Create and manage daily redeem codes</p>
+
+</div>
+
+</div>
+
+<!-- STATS -->
+
+<div class="stats">
+
+<div class="statCard">
+
+<h2 id="activeCodes">0</h2>
+
+<p>Active Codes</p>
+
+</div>
+
+<div class="statCard">
+
+<h2 id="todayRedeems">0</h2>
+
+<p>Today's Redeems</p>
+
+</div>
+
+</div>
+
+<!-- CREATE CODE -->
+
+<div class="card">
+
+<h3>Create Lucky Code</h3>
+
+<input
+type="text"
+id="code"
+placeholder="Lucky Code (Example: DATA365100)">
+
+<input
+type="number"
+id="reward"
+placeholder="Reward (MB)">
+
+<input
+type="number"
+id="maxUsers"
+placeholder="Maximum Winners">
+
+<button id="createCodeBtn">
+
+Create Lucky Code
+
+</button>
+
+</div>
+
+<!-- ACTIVE CODES -->
+
+<div class="card">
+
+<h3>Active Lucky Codes</h3>
+
+<div id="codeList">
+
+<!-- Loaded from Firebase -->
+
+</div>
+
+</div>
+<!-- EMPTY STATE -->
+
+<div id="emptyState" class="emptyState">
+
+<i class="fa-solid fa-gift"></i>
+
+<h3>No Lucky Codes</h3>
+
+<p>
+
+Create a new lucky code to start today's giveaway.
+
+</p>
+
+</div>
+
+<!-- LOADING -->
+
+<div id="loading" class="loading">
+
+<div class="loader"></div>
+
+<p>
+
+Loading Lucky Codes...
+
+</p>
+
+</div>
+
+<!-- SUCCESS TOAST -->
+
+<div id="toast" class="toast">
+
+<span id="toastText">
+
+Success
+
+</span>
+
+</div>
+
+<!-- FOOTER -->
+
+<footer>
+
+<p>
+
+© 2026 Data365 Admin Panel
+
+</p>
+
+</footer>
+
+</div>
+
+<script type="module" src="adminluckycode.js"></script>
+
+</body>
+
+</html>

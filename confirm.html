@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Confirm Email | Data365</title>
+
+<link rel="stylesheet" href="auth.css">
+
+<style>
+
+body{
+    background:#f8f8ff;
+}
+
+.verify-box{
+    text-align:center;
+}
+
+.icon{
+    width:90px;
+    height:90px;
+    margin:auto;
+    border-radius:50%;
+    background:#f1ecff;
+    color:#6C3BFF;
+    font-size:40px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin-bottom:20px;
+}
+
+.email{
+    color:#6C3BFF;
+    font-weight:600;
+    word-break:break-all;
+}
+
+.status{
+    margin-top:15px;
+    font-size:14px;
+    color:#757575;
+}
+
+.btn-secondary{
+    width:100%;
+    margin-top:12px;
+    padding:14px;
+    border:none;
+    border-radius:14px;
+    background:#ececec;
+    color:#333;
+    font-weight:600;
+    cursor:pointer;
+}
+
+</style>
+
+</head>
+<body>
+
+<div class="auth-card">
+
+    <div class="verify-box">
+
+        <div class="icon">📧</div>
+
+        <h1>Verify Email</h1>
+
+        <p class="subtitle">
+            We have sent a verification link to:
+        </p>
+
+        <p class="email" id="userEmail">
+            Loading...
+        </p>
+
+        <p class="status" id="statusText">
+            Waiting for verification...
+        </p>
+
+        <button class="btn" id="checkBtn">
+            Check Verification
+        </button>
+
+        <button class="btn-secondary" id="resendBtn">
+            Resend Email
+        </button>
+
+    </div>
+
+</div>
+
+<script type="module" src="confirm.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Login | Data365</title>
+
+<link rel="stylesheet" href="auth.css">
+
+<style>
+
+body{
+    background:#f8f8ff;
+}
+
+.logo{
+    width:80px;
+    height:80px;
+    border-radius:20px;
+    background:#6C3BFF;
+    color:white;
+    font-size:32px;
+    font-weight:bold;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin:0 auto 20px;
+}
+
+.alert{
+    display:none;
+    padding:12px;
+    border-radius:10px;
+    margin-bottom:15px;
+    font-size:14px;
+}
+
+.alert.error{
+    background:#ffeaea;
+    color:#d60000;
+}
+
+.alert.success{
+    background:#eaffea;
+    color:#008000;
+}
+
+</style>
+
+</head>
+<body>
+
+<div class="auth-card">
+
+    <div class="logo">D</div>
+
+    <h1>Welcome Back</h1>
+
+    <p class="subtitle">
+        Login to continue earning data
+    </p>
+
+    <div id="alertBox" class="alert"></div>
+
+    <form id="loginForm">
+
+        <div class="input-group">
+            <label>Email Address</label>
+            <input
+                type="email"
+                id="email"
+                placeholder="Enter email"
+                required>
+        </div>
+
+        <div class="input-group">
+            <label>Password</label>
+            <input
+                type="password"
+                id="password"
+                placeholder="Enter password"
+                required>
+        </div>
+
+        <button
+            type="submit"
+            class="btn"
+            id="loginBtn">
+            Login
+        </button>
+
+    </form>
+
+    <p style="text-align:center;margin-top:15px;">
+        <a href="#" id="forgotPassword">
+            Forgot Password?
+        </a>
+    </p>
+
+    <p class="auth-link">
+        Don't have an account?
+        <a href="/signup">
+            Sign Up
+        </a>
+    </p>
+
+</div>
+
+<script type="module" src="login.js"></script>
+
+</body>
+</html>

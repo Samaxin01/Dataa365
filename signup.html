@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Data365 - Create Account</title>
+
+<link rel="stylesheet" href="auth.css">
+
+<style>
+
+body{
+    background:#f8f8ff;
+}
+
+.logo-container{
+    text-align:center;
+    margin-bottom:20px;
+}
+
+.logo{
+    width:80px;
+    height:80px;
+    border-radius:20px;
+    background:#6C3BFF;
+    color:#fff;
+    font-size:32px;
+    font-weight:bold;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin:auto;
+}
+
+.captcha-box{
+    background:#f1ecff;
+    padding:12px;
+    border-radius:12px;
+    text-align:center;
+    margin-bottom:15px;
+    color:#6C3BFF;
+    font-weight:600;
+}
+
+.alert{
+    display:none;
+    padding:12px;
+    border-radius:10px;
+    margin-bottom:15px;
+    font-size:14px;
+}
+
+.alert.error{
+    background:#ffeaea;
+    color:#d60000;
+}
+
+.alert.success{
+    background:#eaffea;
+    color:#008000;
+}
+
+.loading-spinner{
+    width:18px;
+    height:18px;
+    border:2px solid rgba(255,255,255,.3);
+    border-top:2px solid white;
+    border-radius:50%;
+    display:inline-block;
+    animation:spin 1s linear infinite;
+    vertical-align:middle;
+}
+
+@keyframes spin{
+    100%{
+        transform:rotate(360deg);
+    }
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="auth-card">
+
+    <div class="logo-container">
+        <div class="logo">D</div>
+    </div>
+
+    <h1>Create Account</h1>
+
+    <p class="subtitle">
+        Join Data365 and start earning data
+    </p>
+
+    <div id="alertBox" class="alert"></div>
+
+    <form id="signupForm">
+
+        <div class="input-group">
+            <label>Username</label>
+            <input
+                type="text"
+                id="username"
+                placeholder="Enter username"
+                required>
+        </div>
+
+        <div class="input-group">
+            <label>Email Address</label>
+            <input
+                type="email"
+                id="email"
+                placeholder="Enter email address"
+                required>
+        </div>
+
+        <div class="input-group">
+            <label>Password</label>
+            <input
+                type="password"
+                id="password"
+                placeholder="Create password"
+                required>
+        </div>
+
+        <div class="input-group">
+            <label>Confirm Password</label>
+            <input
+                type="password"
+                id="confirmPassword"
+                placeholder="Confirm password"
+                required>
+        </div>
+
+        <div class="input-group">
+            <label>Referral Code (Optional)</label>
+            <input
+                type="text"
+                id="referral"
+                placeholder="Referral code">
+        </div>
+
+        <div class="captcha-box">
+            Solve:
+            <span id="captchaQuestion">
+                Loading...
+            </span>
+        </div>
+
+        <div class="input-group">
+            <label>Captcha Answer</label>
+            <input
+                type="number"
+                id="captchaAnswer"
+                placeholder="Enter answer"
+                required>
+        </div>
+
+        <button
+            type="submit"
+            class="btn"
+            id="signupBtn">
+
+            Create Account
+
+        </button>
+
+    </form>
+
+    <p class="auth-link">
+
+        Already have an account?
+
+        <a href="/login">
+            Login
+        </a>
+
+    </p>
+
+</div>
+
+<script type="module" src="signup.js"></script>
+
+</body>
+</html>

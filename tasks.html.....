@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Tasks | Data365</title>
+
+<link rel="stylesheet" href="tasks.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+<div class="app">
+
+    <!-- HEADER -->
+
+    <header class="page-header">
+
+        <div>
+
+            <h2>Available Tasks</h2>
+
+            <p>Complete tasks and earn free data</p>
+
+        </div>
+
+    </header>
+
+    <!-- STATS -->
+
+    <section class="task-stats">
+
+        <div class="stat-box">
+
+            <h3 id="availableTasks">
+                0
+            </h3>
+
+            <span>
+                Available
+            </span>
+
+        </div>
+
+        <div class="stat-box">
+
+            <h3 id="completedTasks">
+                0
+            </h3>
+
+            <span>
+                Completed
+            </span>
+
+        </div>
+
+        <div class="stat-box">
+
+            <h3 id="pendingTasks">
+                0
+            </h3>
+
+            <span>
+                Pending
+            </span>
+
+        </div>
+
+    </section>
+
+    <!-- TASK LIST -->
+
+    <section id="tasksContainer">
+
+        <!-- TASK CARD 1 -->
+
+        <div class="task-card">
+
+            <div class="task-top">
+
+                <span class="reward">
+                    +40MB
+                </span>
+
+                <span class="status available">
+                    Available
+                </span>
+
+            </div>
+
+            <h3>
+                Join WhatsApp Channel
+            </h3>
+
+            <p>
+                Join our official WhatsApp channel
+                and earn free data.
+            </p>
+
+            <div class="task-info">
+
+                <span>
+                    Due:
+                    Tomorrow 12:00AM
+                </span>
+
+            </div>
+
+            <button
+                class="perform-btn"
+                data-link="">
+
+                Perform Task
+
+            </button>
+
+        </div>
+
+        <!-- TASK CARD 2 -->
+
+        <div class="task-card">
+
+            <div class="task-top">
+
+                <span class="reward">
+                    +30MB
+                </span>
+
+                <span class="status available">
+                    Available
+                </span>
+
+            </div>
+
+            <h3>
+                Join Telegram Channel
+            </h3>
+
+            <p>
+                Join our Telegram community and
+                submit proof.
+            </p>
+
+            <div class="task-info">
+
+                <span>
+                    Due:
+                    Tomorrow 12:00AM
+                </span>
+
+            </div>
+
+            <button
+                class="perform-btn"
+                data-link="">
+
+                Perform Task
+
+            </button>
+
+        </div>
+
+<!-- Task 3 -->
+<div class="task-card">
+
+    <div class="task-top">
+
+        <span class="reward">+50MB</span>
+
+        <span class="status available">Available</span>
+
+    </div>
+
+    <h3>Follow Instagram Page</h3>
+
+    <p>Follow our Instagram page and earn rewards.</p>
+
+    <div class="task-info">
+        <span>Due: Tomorrow 12:00AM</span>
+    </div>
+
+    <button class="perform-btn"
+        data-link="">
+
+        Perform Task
+
+    </button>
+
+</div>
+
+<!-- Task 4 -->
+<div class="task-card">
+
+    <div class="task-top">
+
+        <span class="reward">+50MB</span>
+
+        <span class="status available">Available</span>
+
+    </div>
+
+    <h3>Follow Instagrams Page</h3>
+
+    <p>Follow our Instagram page and earn rewards.</p>
+
+    <div class="task-info">
+        <span>Due: Tomorrow 12:00AM</span>
+    </div>
+
+    <button class="perform-btn"
+        data-link="">
+
+        Perform Task
+
+    </button>
+
+</div>
+
+<!-- Task 4 -->
+<div class="task-card">
+
+    <div class="task-top">
+
+        <span class="reward">+50MB</span>
+
+        <span class="status available">Available</span>
+
+    </div>
+
+    <h3>Testing T</h3>
+
+    <p>Follow our Instagram page and earn rewards.</p>
+
+    <div class="task-info">
+        <span>Due: Tomorrow 12:00AM</span>
+    </div>
+
+    <button class="perform-btn"
+        data-link="">
+
+        Perform Task
+
+    </button>
+
+</div>
+
+    </section>
+
+</div>
+
+<!-- PROOF MODAL -->
+
+<div class="modal" id="proofModal">
+
+    <div class="modal-content">
+
+        <h3>
+            Submit Task Proof
+        </h3>
+
+        <p>
+            Upload screenshot proof
+        </p>
+
+        <form
+            id="proofForm"
+            action="https://formsubmit.co/mymargonapp@gmail.com"
+            method="POST"
+            enctype="multipart/form-data">
+
+            <input
+type="hidden"
+name="userEmail"
+id="hiddenEmail">
+
+<input
+type="hidden"
+name="taskTitle"
+id="hiddenTask">
+
+         
+
+            <input
+                type="hidden"
+                name="_subject"
+                value="New Task Submission">
+
+            <label>Email</label>
+
+            <input
+                type="email"
+                id="userEmail"
+                name="email"
+                readonly>
+
+            <label>Task</label>
+
+            <input
+                type="text"
+                id="taskTitle"
+                name="task"
+                readonly>
+            <input
+type="hidden"
+name="userEmail"
+id="hiddenEmail">
+
+<input
+type="hidden"
+name="taskTitle"
+id="hiddenTask">
+
+        <label>Screenshot</label>
+
+<input
+type="file"
+name="attachment"
+accept="image/*"
+required>
+
+            <button
+                type="submit"
+                class="submit-proof">
+
+                Submit Proof
+
+            </button>
+
+        </form>
+
+        <button
+            id="closeModal"
+            class="close-btn">
+
+            Close
+
+        </button>
+
+    </div>
+
+</div>
+
+<!-- LOADING SCREEN -->
+
+<div class="loading-screen" id="loadingScreen">
+
+    <div class="loader"></div>
+
+    <h3>
+        Submitting Task...
+    </h3>
+
+    <p>
+        Please wait while we process
+        your submission.
+    </p>
+
+</div>
+
+<!-- BOTTOM NAV -->
+
+<nav class="bottom-nav">
+
+    <a href="dashboard.html">
+
+        <svg viewBox="0 0 24 24">
+            <path d="M3 10L12 3L21 10V21H3Z"
+            fill="currentColor"/>
+        </svg>
+
+        <span>Home</span>
+
+    </a>
+
+    <a href="tasks.html" class="active">
+
+        <svg viewBox="0 0 24 24">
+
+            <path d="M8 6H21M8 12H21M8 18H21"
+            stroke="currentColor"
+            stroke-width="2"/>
+
+        </svg>
+
+        <span>Tasks</span>
+
+    </a>
+
+    <a href="refer.html">
+
+        <svg viewBox="0 0 24 24">
+
+            <circle cx="8" cy="8"
+            r="4"
+            stroke="currentColor"
+            stroke-width="2"/>
+
+            <path d="M4 21C4 17 7 15 12 15"
+            stroke="currentColor"
+            stroke-width="2"/>
+
+        </svg>
+
+        <span>Refer</span>
+
+    </a>
+
+    <a href="profile.html">
+
+        <svg viewBox="0 0 24 24">
+
+            <circle cx="12"
+            cy="8"
+            r="4"
+            stroke="currentColor"
+            stroke-width="2"/>
+
+            <path d="M4 21C4 17 7 15 12 15C17 15 20 17 20 21"
+            stroke="currentColor"
+            stroke-width="2"/>
+
+        </svg>
+
+        <span>Profile</span>
+
+    </a>
+
+</nav>
+
+<script type="module" src="tasks.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Data365 Tasks</title>
+
+<link rel="stylesheet" href="task.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- HEADER -->
+
+<div class="header">
+
+<a href="dashboard.html" class="back">
+
+<i class="fa-solid fa-arrow-left"></i>
+
+</a>
+
+<div>
+
+<h2>Daily Tasks</h2>
+
+<p>Complete tasks and earn free data</p>
+
+</div>
+
+</div>
+
+<!-- STATS -->
+
+<div class="stats">
+
+<div class="stat">
+
+<h1 id="availableTasks">
+
+...
+
+</h1>
+
+<p>Available</p>
+
+</div>
+
+<div class="stat">
+
+<h1 id="completedTasks">
+
+loading...
+
+</h1>
+
+<p>Completed</p>
+
+</div>
+
+<div class="stat">
+
+<h1 id="pendingTasks">
+
+...
+
+</h1>
+
+<p>Pending</p>
+
+</div>
+
+</div>
+
+<!-- TASKS -->
+
+<div class="tasks">
+
+<!-- TASK 1 -->
+
+<div
+class="taskCard"
+
+data-task="Join Task360 Official WhatsApp Channel"
+
+data-reward="100"
+
+data-link="https://whatsapp.com/channel/0029VbCnDxu8KMqfalUgrN0L"
+
+data-id="task1"
+
+     data-end="2026-07-05T18:00:00">
+
+<div class="reward">
+
+100MB Reward
+
+</div>
+
+<h3>
+
+Join Data365 Official WhatsApp Channel
+
+</h3>
+
+<p>
+
+Join our official WhatsApp Channel and remain a member.
+
+</p>
+
+<div class="countdown">
+
+<i class="fa-regular fa-clock"></i>
+
+<span>
+
+14 Hours Remaining
+
+</span>
+
+</div>
+
+<button class="performBtn">
+
+Perform Task
+
+</button>
+
+</div>
+
+<!-- TASK 2 -->
+
+<div
+class="taskCard"
+
+data-task="Follow Instagram"
+
+data-reward="50"
+
+data-link=""
+
+data-id="task2">
+
+<div class="reward">
+
+20MB Reward
+
+</div>
+
+<h3>
+
+Follow Instagram Page
+
+</h3>
+
+<p>
+
+Follow our official Instagram account.
+
+</p>
+
+<div class="countdown">
+
+<i class="fa-regular fa-clock"></i>
+
+<span>
+
+14 Hours Remaining
+
+</span>
+
+</div>
+
+<button class="performBtn">
+
+Perform Task
+
+</button>
+
+</div>
+
+<!-- TASK 3 -->
+
+<div
+class="taskCard"
+
+data-task="Join Telegram"
+
+data-reward="40"
+
+data-link=""
+
+data-id="task3">
+
+<div class="reward">
+
+40MB Reward
+
+</div>
+
+<h3>
+
+Join Telegram Channel
+
+</h3>
+
+<p>
+
+Join the Telegram channel and stay subscribed.
+
+</p>
+
+<div class="countdown">
+
+<i class="fa-regular fa-clock"></i>
+
+<span>
+
+14 Hours Remaining
+
+</span>
+
+</div>
+
+<button class="performBtn">
+
+Perform Task
+
+</button>
+
+</div>
+<!-- TASK 4 -->
+
+<div
+class="taskCard"
+
+data-task="Subscribe on YouTube"
+
+data-reward="25"
+
+data-link="https://youtube.com/"
+
+data-id="task4">
+
+<div class="reward">
+
+25MB Reward
+
+</div>
+
+<h3>
+
+Subscribe on YouTube
+
+</h3>
+
+<p>
+
+Subscribe to our YouTube channel and keep your subscription active.
+
+</p>
+
+<div class="countdown">
+
+<i class="fa-regular fa-clock"></i>
+
+<span>
+
+14 Hours Remaining
+
+</span>
+
+</div>
+
+<button class="performBtn">
+
+Perform Task
+
+</button>
+
+</div>
+
+<!-- TASK 5 -->
+
+<div
+class="taskCard"
+
+data-task="Like Facebook Page"
+
+data-reward="35"
+
+data-link="https://facebook.com/"
+
+data-id="task5">
+
+<div class="reward">
+
+35MB Reward
+
+</div>
+
+<h3>
+
+Like Facebook Page
+
+</h3>
+
+<p>
+
+Like and follow our official Facebook page.
+
+</p>
+
+<div class="countdown">
+
+<i class="fa-regular fa-clock"></i>
+
+<span>
+
+14 Hours Remaining
+
+</span>
+
+</div>
+
+<button class="performBtn">
+
+Perform Task
+
+</button>
+
+</div>
+
+</div>
+
+<!-- SUBMIT TASK POPUP -->
+
+<div class="popup" id="taskPopup">
+
+<div class="popupContent">
+
+<h2>
+
+Submit Task Proof
+
+</h2>
+
+<form id="taskForm" enctype="multipart/form-data">
+
+enctype="multipart/form-data">
+
+<input type="hidden" name="_template" value="table">
+
+<input
+type="hidden"
+name="_captcha"
+value="false">
+
+<input
+type="hidden"
+name="_subject"
+value="New Data365 Task Submission">
+
+<input
+type="hidden"
+id="reward"
+name="Reward">
+
+<div class="inputGroup">
+
+<label>Email Address</label>
+
+<input
+type="email"
+id="email"
+name="Email"
+readonly>
+
+</div>
+
+<div class="inputGroup">
+
+<label>Task Name</label>
+
+<input
+type="text"
+id="taskName"
+name="Task"
+readonly>
+
+</div>
+
+<div class="inputGroup">
+
+<label>Upload Screenshot Proof</label>
+
+<input
+type="file"
+id="proof"
+name="Screenshot"
+accept="image/*"
+required>
+
+</div>
+
+<button
+type="submit"
+id="submitBtn">
+
+Submit Task
+
+</button>
+
+<button
+type="button"
+id="closePopup">
+
+Cancel
+
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+<!-- LOADING -->
+
+<div id="loading" class="loading">
+
+<div class="loader"></div>
+
+<p>Loading...</p>
+
+</div>
+
+<!-- TOAST -->
+
+<div id="toast" class="toast">
+
+<span id="toastText">
+
+Success
+
+</span>
+
+</div>
+
+<script type="module" src="task.js"></script>
+
+</body>
+
+</html>

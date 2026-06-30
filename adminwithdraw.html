@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Admin Withdraw | Data365</title>
+
+<link rel="stylesheet"
+href="adminwithdraw.css">
+
+<link rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="app">
+
+<!-- Header -->
+
+<header class="header">
+
+<a href="dashboard.html" class="backBtn">
+
+<i class="fa-solid fa-arrow-left"></i>
+
+</a>
+
+<div>
+
+<h2>Admin Withdraw</h2>
+
+<p>Manage withdrawal requests</p>
+
+</div>
+
+</header>
+
+<!-- Statistics -->
+
+<div class="stats">
+
+<div class="statCard">
+
+<h3 id="pendingCount">
+
+0
+
+</h3>
+
+<p>Pending</p>
+
+</div>
+
+<div class="statCard">
+
+<h3 id="approvedCount">
+
+0
+
+</h3>
+
+<p>Approved</p>
+
+</div>
+
+<div class="statCard">
+
+<h3 id="rejectedCount">
+
+0
+
+</h3>
+
+<p>Rejected</p>
+
+</div>
+
+</div>
+
+<!-- Pending Requests -->
+
+<div class="section">
+
+<div class="sectionHeader">
+
+<h3>
+
+<i class="fa-solid fa-wallet"></i>
+
+Pending Withdrawals
+
+</h3>
+
+</div>
+
+<div id="withdrawList">
+
+<!-- Firebase loads requests here -->
+
+</div>
+
+<div id="emptyState" class="emptyState">
+
+<i class="fa-solid fa-circle-check"></i>
+
+<h3>
+
+No Pending Withdrawals
+
+</h3>
+
+<p>
+
+New withdrawal requests will appear here automatically.
+
+</p>
+
+</div>
+
+</div>
+<!-- Loading Overlay 
+
+<div id="loadingOverlay" class="loadingOverlay">
+
+<div class="loader"></div>
+
+<h3>Loading...</h3>
+
+<p>Please wait</p>
+
+</div> -->
+
+<!-- Toast -->
+
+<div id="toast" class="toast">
+
+<i class="fa-solid fa-circle-check"></i>
+
+<span id="toastText">
+
+Success
+
+</span>
+
+</div>
+
+<footer>
+
+<p>
+
+Data365 Admin Panel v1.0
+
+</p>
+
+</footer>
+
+</div>
+
+<script type="module" src="adminwithdraw.js"></script>
+
+</body>
+
+</html>

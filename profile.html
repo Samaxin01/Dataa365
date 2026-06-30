@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Profile | Data365</title>
+
+<link rel="stylesheet"
+href="profile.css">
+
+<link rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="app">
+
+<!-- Header -->
+
+<header class="header">
+
+<a href="dashboard.html" class="backBtn">
+
+<i class="fa-solid fa-arrow-left"></i>
+
+</a>
+
+<h2>Profile</h2>
+
+</header>
+
+<!-- Profile Card -->
+
+<div class="profileCard">
+
+<div class="avatar">
+
+<i class="fa-solid fa-user"></i>
+
+</div>
+
+<h2 id="username">
+
+Loading...
+
+</h2>
+
+<p id="email">
+
+Loading...
+
+</p>
+
+<div
+id="verifyBadge"
+class="verified">
+
+<i class="fa-solid fa-circle-check"></i>
+
+Email Verified
+
+</div>
+
+</div>
+
+<!-- Statistics -->
+
+<div class="statsGrid">
+
+<div class="stat">
+
+<i class="fa-solid fa-wallet"></i>
+
+<h3 id="balanceMB">
+
+0MB
+
+</h3>
+
+<p>Balance</p>
+
+</div>
+
+<div class="stat">
+
+<i class="fa-solid fa-user-group"></i>
+
+<h3 id="totalReferrals">
+
+0
+
+</h3>
+
+<p>Referrals</p>
+
+</div>
+
+<div class="stat">
+
+<i class="fa-solid fa-list-check"></i>
+
+<h3 id="completedTasks">
+
+0
+
+</h3>
+
+<p>Tasks</p>
+
+</div>
+
+<div class="stat">
+
+<i class="fa-solid fa-calendar-days"></i>
+
+<h3 id="joinedDate">
+
+--
+
+</h3>
+
+<p>Joined</p>
+
+</div>
+
+</div>
+
+<!-- Menu -->
+
+<div class="menu">
+
+<a href="editprofile.html" class="menuItem">
+
+<div>
+
+<i class="fa-solid fa-user-pen"></i>
+
+<span>Edit Profile</span>
+
+</div>
+
+<i class="fa-solid fa-chevron-right"></i>
+
+</a>
+
+<a href="changepassword.html" class="menuItem">
+
+<div>
+
+<i class="fa-solid fa-lock"></i>
+
+<span>Change Password</span>
+
+</div>
+
+<i class="fa-solid fa-chevron-right"></i>
+
+</a>
+
+<a href="coderedeem.html" class="menuItem">
+
+<div>
+
+<i class="fa-solid fa-gift"></i>
+
+<span>Redeem Lucky Code</span>
+
+</div>
+
+
+<i class="fa-solid fa-chevron-right"></i>
+
+</a>
+
+<a href="profile.html" class="menuItem">
+
+<div>
+
+<i class="fa-solid fa-gear"></i>
+
+<span>Settings</span>
+
+</div>
+
+<i class="fa-solid fa-chevron-right"></i>
+
+</a>
+
+<a
+href="https://t.me/data365support"
+target="_blank"
+class="menuItem">
+
+<div>
+
+<i class="fa-brands fa-telegram"></i>
+
+<span>Customer Support</span>
+
+</div>
+
+<i class="fa-solid fa-chevron-right"></i>
+
+</a>
+
+<a href="privacy.html" class="menuItem">
+
+<div>
+
+<i class="fa-solid fa-shield-halved"></i>
+
+<span>Privacy Policy</span>
+
+</div>
+
+<i class="fa-solid fa-chevron-right"></i>
+
+</a>
+
+<a href="#" id="rateApp" class="menuItem">
+
+<div>
+
+<i class="fa-solid fa-star"></i>
+
+<span>Rate Data365</span>
+
+</div>
+
+<i class="fa-solid fa-chevron-right"></i>
+
+</a>
+
+<button id="logoutBtn" class="logoutBtn">
+
+<i class="fa-solid fa-right-from-bracket"></i>
+
+Logout
+
+</button>
+
+</div>
+
+<!-- Loading -->
+
+<div id="loadingOverlay" class="loadingOverlay">
+
+<div class="loader"></div>
+
+<h3>Loading...</h3>
+
+<p>Please wait</p>
+
+</div>
+
+<!-- Toast -->
+
+<div id="toast" class="toast">
+
+<i class="fa-solid fa-circle-check"></i>
+
+<span id="toastText">
+
+Success
+
+</span>
+
+</div>
+
+<footer>
+
+<p>
+
+Data365 v1.0
+
+</p>
+
+</footer>
+
+<!-- Bottom Navigation -->
+
+<nav class="bottomNav">
+
+<a href="dashboard.html">
+
+<i class="fa-solid fa-house"></i>
+
+<span>Home</span>
+
+</a>
+
+<a href="tasks.html">
+
+<i class="fa-solid fa-list-check"></i>
+
+<span>Tasks</span>
+
+</a>
+
+<a href="refer.html">
+
+<i class="fa-solid fa-user-group"></i>
+
+<span>Refer</span>
+
+</a>
+
+<a href="profile.html" class="active">
+
+<i class="fa-solid fa-user"></i>
+
+<span>Profile</span>
+
+</a>
+
+</nav>
+
+</div>
+
+<script type="module" src="profile.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,726 @@
+/* =====================================
+   DATA365 WITHDRAW PAGE
+===================================== */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+:root{
+
+--primary:#6C3BFF;
+--primaryLight:#8D6BFF;
+--background:#F6F7FB;
+--card:#FFFFFF;
+--text:#1E1E1E;
+--sub:#757575;
+--green:#16C784;
+--red:#EF4444;
+--orange:#F59E0B;
+--shadow:0 12px 25px rgba(0,0,0,.08);
+
+}
+
+body{
+
+background:var(--background);
+color:var(--text);
+padding-bottom:100px;
+
+}
+
+.app{
+
+max-width:600px;
+margin:auto;
+padding:20px;
+animation:fade .35s ease;
+
+}
+
+@keyframes fade{
+
+from{
+
+opacity:0;
+transform:translateY(15px);
+
+}
+
+to{
+
+opacity:1;
+transform:none;
+
+}
+
+}
+
+/* ==========================
+HEADER
+========================== */
+
+.header{
+
+display:flex;
+align-items:center;
+gap:15px;
+margin-bottom:25px;
+
+}
+
+.backBtn{
+
+width:45px;
+height:45px;
+background:white;
+border-radius:50%;
+display:flex;
+justify-content:center;
+align-items:center;
+text-decoration:none;
+color:var(--primary);
+box-shadow:var(--shadow);
+
+}
+
+.header h2{
+
+font-size:24px;
+font-weight:700;
+
+}
+
+.header p{
+
+font-size:13px;
+color:var(--sub);
+
+}
+
+/* ==========================
+BALANCE CARD
+========================== */
+
+.balanceCard{
+
+background:linear-gradient(
+135deg,
+var(--primary),
+var(--primaryLight)
+);
+
+color:white;
+border-radius:25px;
+padding:25px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+box-shadow:0 18px 35px rgba(108,59,255,.30);
+margin-bottom:20px;
+
+}
+
+.balanceCard h3{
+
+font-size:15px;
+font-weight:400;
+opacity:.9;
+
+}
+
+.balanceCard h1{
+
+font-size:38px;
+margin:10px 0;
+
+}
+
+.balanceCard p{
+
+font-size:13px;
+opacity:.9;
+
+}
+
+.balanceCard i{
+
+font-size:55px;
+opacity:.9;
+
+}
+
+/* ==========================
+INFO CARD
+========================== */
+
+.infoCard{
+
+background:white;
+padding:20px;
+border-radius:20px;
+box-shadow:var(--shadow);
+margin-bottom:20px;
+
+}
+
+.infoCard h3{
+
+display:flex;
+align-items:center;
+gap:10px;
+margin-bottom:10px;
+color:var(--primary);
+
+}
+
+.infoCard p{
+
+font-size:14px;
+color:var(--sub);
+line-height:1.6;
+
+}
+
+/* ==========================
+FORM CARD
+========================== */
+
+.formCard{
+
+background:white;
+padding:22px;
+border-radius:22px;
+box-shadow:var(--shadow);
+margin-bottom:25px;
+
+}
+
+.formCard h3{
+
+margin-bottom:20px;
+font-size:18px;
+
+}
+
+.inputGroup{
+
+margin-bottom:18px;
+
+}
+
+.inputGroup label{
+
+display:block;
+font-size:14px;
+font-weight:600;
+margin-bottom:8px;
+
+}
+
+.inputGroup input,
+.inputGroup select{
+
+width:100%;
+padding:15px;
+border:2px solid #ECECEC;
+border-radius:14px;
+font-size:15px;
+outline:none;
+transition:.25s;
+background:#FAFAFA;
+
+}
+
+.inputGroup input:focus,
+.inputGroup select:focus{
+
+border-color:var(--primary);
+background:white;
+
+}
+
+/* ==========================
+RULES
+========================== */
+
+.rules{
+
+background:#F8F6FF;
+border-left:5px solid var(--primary);
+padding:18px;
+border-radius:16px;
+margin:20px 0;
+
+}
+
+.rules h4{
+
+margin-bottom:12px;
+color:var(--primary);
+
+}
+
+.rules ul{
+
+padding-left:18px;
+
+}
+
+.rules li{
+
+margin-bottom:8px;
+font-size:14px;
+color:var(--sub);
+line-height:1.5;
+
+}
+
+/* ==========================
+WITHDRAW BUTTON
+========================== */
+
+.withdrawBtn{
+
+width:100%;
+padding:16px;
+border:none;
+border-radius:16px;
+background:var(--primary);
+color:white;
+font-size:16px;
+font-weight:600;
+display:flex;
+align-items:center;
+justify-content:center;
+gap:10px;
+cursor:pointer;
+transition:.25s;
+
+}
+
+.withdrawBtn:hover{
+
+transform:translateY(-2px);
+
+}
+
+.withdrawBtn:disabled{
+
+background:#BDBDBD;
+cursor:not-allowed;
+transform:none;
+
+}
+/* ==========================
+PENDING WITHDRAWAL
+========================== */
+
+.pendingCard{
+
+background:white;
+padding:22px;
+border-radius:22px;
+box-shadow:var(--shadow);
+margin-bottom:22px;
+
+}
+
+.pendingCard h3{
+
+display:flex;
+align-items:center;
+gap:10px;
+color:var(--orange);
+margin-bottom:18px;
+
+}
+
+.pendingItem{
+
+background:#FFF8E8;
+border-left:5px solid var(--orange);
+padding:18px;
+border-radius:16px;
+
+}
+
+.pendingItem p{
+
+margin:8px 0;
+font-size:14px;
+color:var(--text);
+
+}
+
+.pendingStatus{
+
+display:inline-block;
+margin-top:12px;
+padding:8px 14px;
+border-radius:20px;
+background:var(--orange);
+color:white;
+font-size:13px;
+font-weight:600;
+
+}
+
+.emptyText{
+
+text-align:center;
+color:var(--sub);
+font-size:14px;
+padding:20px 0;
+
+}
+
+/* ==========================
+WITHDRAW HISTORY
+========================== */
+
+.historyCard{
+
+background:white;
+padding:22px;
+border-radius:22px;
+box-shadow:var(--shadow);
+margin-bottom:25px;
+
+}
+
+.historyHeader{
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:20px;
+
+}
+
+.historyHeader h3{
+
+font-size:18px;
+
+}
+
+.historyHeader span{
+
+background:var(--primary);
+color:white;
+padding:6px 14px;
+border-radius:18px;
+font-size:13px;
+font-weight:600;
+
+}
+
+.historyItem{
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:18px 0;
+border-bottom:1px solid #EEEEEE;
+
+}
+
+.historyItem:last-child{
+
+border-bottom:none;
+
+}
+
+.historyLeft h4{
+
+font-size:15px;
+margin-bottom:6px;
+
+}
+
+.historyLeft p{
+
+font-size:13px;
+color:var(--sub);
+
+}
+
+.status{
+
+padding:8px 14px;
+border-radius:20px;
+font-size:13px;
+font-weight:600;
+
+}
+
+.status.pending{
+
+background:#FFF3CD;
+color:#B7791F;
+
+}
+
+.status.approved{
+
+background:#DCFCE7;
+color:#15803D;
+
+}
+
+.status.rejected{
+
+background:#FEE2E2;
+color:#DC2626;
+
+}
+
+/* ==========================
+EMPTY HISTORY
+========================== */
+
+.emptyHistory{
+
+display:none;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+padding:40px 20px;
+text-align:center;
+
+}
+
+.emptyHistory i{
+
+font-size:60px;
+color:var(--primary);
+margin-bottom:15px;
+
+}
+
+.emptyHistory h3{
+
+margin-bottom:8px;
+
+}
+
+.emptyHistory p{
+
+font-size:14px;
+color:var(--sub);
+
+}
+
+/* ==========================
+LOADING
+========================== */
+
+.loadingOverlay{
+
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(255,255,255,.95);
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+z-index:9999;
+
+}
+
+.loader{
+
+width:60px;
+height:60px;
+border:6px solid #ECECEC;
+border-top:6px solid var(--primary);
+border-radius:50%;
+animation:spin .8s linear infinite;
+margin-bottom:18px;
+
+}
+
+@keyframes spin{
+
+100%{
+
+transform:rotate(360deg);
+
+}
+
+}
+
+/* ==========================
+TOAST
+========================== */
+
+.toast{
+
+position:fixed;
+left:50%;
+bottom:90px;
+transform:translateX(-50%) translateY(120px);
+background:var(--primary);
+color:white;
+padding:14px 22px;
+border-radius:50px;
+display:flex;
+align-items:center;
+gap:10px;
+box-shadow:var(--shadow);
+transition:.35s;
+z-index:99999;
+
+}
+
+.toast.show{
+
+transform:translateX(-50%) translateY(0);
+
+}
+
+/* ==========================
+BOTTOM NAVIGATION
+========================== */
+
+.bottomNav{
+
+position:fixed;
+bottom:0;
+left:50%;
+transform:translateX(-50%);
+width:100%;
+max-width:600px;
+background:white;
+display:flex;
+justify-content:space-around;
+padding:12px 0;
+border-radius:22px 22px 0 0;
+box-shadow:0 -5px 20px rgba(0,0,0,.08);
+
+}
+
+.bottomNav a{
+
+text-decoration:none;
+display:flex;
+flex-direction:column;
+align-items:center;
+gap:5px;
+color:var(--sub);
+font-size:12px;
+
+}
+
+.bottomNav a i{
+
+font-size:20px;
+
+}
+
+.bottomNav a.active{
+
+color:var(--primary);
+font-weight:600;
+
+}
+
+/* ==========================
+DARK MODE
+========================== */
+
+body.dark{
+
+--background:#0F172A;
+--card:#1E293B;
+--text:#F8FAFC;
+--sub:#CBD5E1;
+
+}
+
+body.dark .formCard,
+body.dark .balanceCard,
+body.dark .infoCard,
+body.dark .pendingCard,
+body.dark .historyCard,
+body.dark .bottomNav,
+body.dark .backBtn{
+
+background:var(--card);
+color:var(--text);
+
+}
+
+body.dark input,
+body.dark select{
+
+background:#334155;
+color:white;
+border-color:#475569;
+
+}
+
+body.dark .loadingOverlay{
+
+background:rgba(15,23,42,.96);
+
+}
+
+/* ==========================
+RESPONSIVE
+========================== */
+
+@media(max-width:600px){
+
+.balanceCard{
+
+flex-direction:column;
+align-items:flex-start;
+gap:18px;
+
+}
+
+.balanceCard i{
+
+align-self:flex-end;
+
+}
+
+.historyItem{
+
+flex-direction:column;
+align-items:flex-start;
+gap:12px;
+
+}
+
+}
+
+/* ==========================
+SCROLLBAR
+========================== */
+
+::-webkit-scrollbar{
+
+width:7px;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+background:var(--primary);
+border-radius:20px;
+
+}
+
+::-webkit-scrollbar-track{
+
+background:transparent;
+
+}

@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Loading • Data365</title>
+
+<!-- Google Font -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    height: 100vh;
+    background: #FFFFFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+
+/* Main Card */
+
+.loader-box {
+    text-align: center;
+    width: 90%;
+    max-width: 350px;
+    animation: fadeUp 0.8s ease;
+}
+
+
+/* Animated Logo */
+
+.logo {
+    width: 95px;
+    height: 95px;
+    background: #6C3BFF;
+    border-radius: 30px;
+    margin: auto;
+    color: white;
+    font-size: 38px;
+    font-weight: 700;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    animation: pulse 1.5s infinite;
+    box-shadow: 0 15px 35px rgba(108,59,255,.35);
+}
+
+
+h1 {
+    color: #6C3BFF;
+    margin-top: 20px;
+    font-size: 26px;
+}
+
+
+.message {
+    color: #757575;
+    margin-top: 8px;
+    min-height: 45px;
+    font-size: 14px;
+}
+
+
+/* Loading Dots */
+
+.dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 25px;
+}
+
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #6C3BFF;
+    animation: bounce 1s infinite;
+}
+
+.dot:nth-child(2){
+    animation-delay: .2s;
+}
+
+.dot:nth-child(3){
+    animation-delay: .4s;
+}
+
+
+/* Connection Badge */
+
+.status {
+    margin-top: 25px;
+    font-size: 13px;
+    color: #757575;
+}
+
+
+/* Animations */
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.08);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+@keyframes bounce {
+    0%,100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+.fade-out {
+    animation: disappear .5s forwards;
+}
+
+
+@keyframes disappear {
+    to {
+        opacity: 0;
+        transform: scale(.95);
+    }
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="loader-box" id="loader">
+
+    <div class="logo">
+        D
+    </div>
+
+    <h1>Data365</h1>
+
+    <p class="message" id="message">
+        Preparing your Data365 experience...
+    </p>
+
+
+    <div class="dots">
+
+        <div class="dot"></div>
+
+        <div class="dot"></div>
+
+        <div class="dot"></div>
+
+    </div>
+
+
+    <p class="status" id="status">
+        Checking connection...
+    </p>
+
+</div>
+
+
+
+<script>
+
+
+const message = document.getElementById("message");
+const status = document.getElementById("status");
+const loader = document.getElementById("loader");
+
+
+// Detect internet connection
+
+function checkConnection() {
+
+
+    if(navigator.onLine) {
+
+        status.textContent = "Connection stable ✓";
+
+        // Simulate app preparation
+        setTimeout(startApp, 2500);
+
+
+    } else {
+
+        message.textContent =
+        "Poor network connection. Please wait...";
+
+
+        status.textContent =
+        "Waiting for internet connection...";
+
+    }
+
+}
+
+
+// Wait until internet returns
+
+window.addEventListener("online", () => {
+
+    message.textContent =
+    "Connection restored. Preparing app...";
+
+
+    status.textContent =
+    "Connected ✓";
+
+
+    setTimeout(startApp, 2000);
+
+});
+
+
+
+
+// Start application
+
+function startApp(){
+
+
+    loader.classList.add("fade-out");
+
+
+    setTimeout(() => {
+
+
+        /*
+        Firebase Auth check will be added later.
+
+        If logged in:
+        dashboard.html
+
+        If not:
+        signup.html
+        */
+
+
+        window.location.replace(
+            "/signup"
+        );
+
+
+    }, 500);
+
+}
+
+
+// Initial check
+
+window.onload = checkConnection;
+
+
+</script>
+
+
+</body>
+</html>

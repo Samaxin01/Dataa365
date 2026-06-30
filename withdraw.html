@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Withdraw Data | Data365</title>
+
+<link rel="stylesheet" href="withdraw.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="app">
+
+<!-- Header -->
+
+<header class="header">
+
+<a href="dashboard.html" class="backBtn">
+
+<i class="fa-solid fa-arrow-left"></i>
+
+</a>
+
+<div>
+
+<h2>Withdraw Data</h2>
+
+<p>Redeem your earned data</p>
+
+</div>
+
+</header>
+
+<!-- Balance Card -->
+
+<div class="balanceCard">
+
+<div>
+
+<h3>Available Balance</h3>
+
+<h1 id="balanceMB">
+
+0MB
+
+</h1>
+
+<p>Minimum: 500MB • Maximum: 700MB</p>
+
+</div>
+
+<i class="fa-solid fa-wallet"></i>
+
+</div>
+
+<!-- Processing Days -->
+
+<div class="infoCard">
+
+<h3>
+
+<i class="fa-solid fa-calendar-days"></i>
+
+Processing Schedule
+
+</h3>
+
+<p>
+
+Withdrawals are processed every
+
+<strong>Wednesday</strong>,
+
+<strong>Friday</strong>
+
+and
+
+<strong>Sunday</strong>.
+
+</p>
+
+</div>
+
+<!-- Withdrawal Form -->
+
+<div class="formCard">
+
+<h3>
+
+Request Withdrawal
+
+</h3>
+
+<form id="withdrawForm">
+
+<div class="inputGroup">
+
+<label>
+
+Phone Number
+
+</label>
+
+<input
+
+type="tel"
+
+id="phone"
+
+placeholder="08123456789"
+
+required>
+
+</div>
+
+<div class="inputGroup">
+
+<label>
+
+Network
+
+</label>
+
+<select
+
+id="network"
+
+required>
+
+<option value="">
+
+Select Network
+
+</option>
+
+<option>
+
+MTN
+
+</option>
+
+<option>
+
+Airtel
+
+</option>
+
+<option>
+
+Glo
+
+</option>
+
+<option>
+
+9mobile
+
+</option>
+
+</select>
+
+</div>
+
+<div class="inputGroup">
+
+<label>
+
+Amount (MB)
+
+</label>
+
+<input
+
+type="number"
+
+id="amount"
+
+min="500"
+
+max="700"
+
+placeholder="500 - 700"
+
+required>
+
+</div>
+
+<div class="inputGroup">
+
+<label>
+
+Confirm Login Password
+
+</label>
+
+<input
+
+type="password"
+
+id="password"
+
+placeholder="Enter your password"
+
+required>
+
+</div>
+
+<div class="rules">
+
+<h4>
+
+Withdrawal Rules
+
+</h4>
+
+<ul>
+
+<li>Minimum withdrawal is <b>500MB</b>.</li>
+
+<li>Maximum withdrawal is <b>700MB</b>.</li>
+
+<li>Only one withdrawal request is allowed per day.</li>
+
+<li>Your balance will be deducted immediately after a successful request.</li>
+
+<li>If your request is declined, your balance will be refunded automatically.</li>
+
+</ul>
+
+</div>
+
+<button
+
+type="submit"
+
+id="withdrawBtn"
+
+class="withdrawBtn">
+
+<i class="fa-solid fa-paper-plane"></i>
+
+Request Withdrawal
+
+</button>
+
+</form>
+
+</div>
+<!-- Pending Withdrawal -->
+
+<div class="pendingCard">
+
+<h3>
+
+<i class="fa-solid fa-hourglass-half"></i>
+
+Current Withdrawal
+
+</h3>
+
+<div id="pendingContainer">
+
+<p class="emptyText">
+
+No pending withdrawal.
+
+</p>
+
+</div>
+
+</div>
+
+<!-- Withdrawal History -->
+
+<div class="historyCard">
+
+<div class="historyHeader">
+
+<h3>
+
+Withdrawal History
+
+</h3>
+
+<span id="historyCount">
+
+0
+
+</span>
+
+</div>
+
+<div id="historyList">
+
+<!-- Firebase loads history here -->
+
+</div>
+
+<div id="emptyHistory" class="emptyHistory">
+
+<i class="fa-solid fa-clock-rotate-left"></i>
+
+<h3>
+
+No Withdrawal History
+
+</h3>
+
+<p>
+
+Your previous withdrawal requests will appear here.
+
+</p>
+
+</div>
+
+</div>
+
+<!-- Loading Overlay
+
+<div id="loadingOverlay" class="loadingOverlay">
+
+<div class="loader"></div>
+
+<h3>Loading...</h3>
+
+<p>Please wait</p> -->
+
+</div>
+
+<!-- Toast -->
+
+<div id="toast" class="toast">
+
+<i class="fa-solid fa-circle-check"></i>
+
+<span id="toastText">
+
+Success
+
+</span>
+
+</div>
+
+<!-- Bottom Navigation -->
+
+<nav class="bottomNav">
+
+<a href="dashboard.html">
+
+<i class="fa-solid fa-house"></i>
+
+<span>Home</span>
+
+</a>
+
+<a href="tasks.html">
+
+<i class="fa-solid fa-list-check"></i>
+
+<span>Tasks</span>
+
+</a>
+
+<a href="withdraw.html" class="active">
+
+<i class="fa-solid fa-wallet"></i>
+
+<span>Withdraw</span>
+
+</a>
+
+<a href="profile.html">
+
+<i class="fa-solid fa-user"></i>
+
+<span>Profile</span>
+
+</a>
+
+</nav>
+
+</div>
+
+<script type="module" src="withdraw.js"></script>
+
+</body>
+
+</html>

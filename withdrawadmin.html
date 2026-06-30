@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ultragram Admin</title>
+
+<style>
+body {
+    margin: 0;
+    background: #0d0d0f;
+    color: #fff;
+    font-family: Arial;
+}
+
+.container {
+    max-width: 500px;
+    margin: auto;
+    padding: 15px;
+}
+
+.card {
+    background: #141416;
+    padding: 15px;
+    border-radius: 12px;
+    margin-bottom: 10px;
+}
+
+.btn {
+    padding: 8px 12px;
+    margin-top: 8px;
+    display: inline-block;
+    border-radius: 6px;
+    font-size: 13px;
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+.approve { background: green; }
+.reject { background: red; }
+</style>
+</head>
+
+<body>
+
+<div class="container">
+<h2>Admin Panel</h2>
+
+<div id="requests">Loading...</div>
+
+</div>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+import { 
+    getFirestore, collection, onSnapshot, doc, getDoc, updateDoc, increment 
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+// 🔥 FIREBASE CONFIG
+const app = initializeApp({
+  apiKey: "AIzaSyDKDO_xhyOpMIw_z-FWiubqeBcQdPcpbHY",
+  authDomain: "data365-98916.firebaseapp.com",
+  projectId: "data365-98916",
+});
+
+const auth = getAuth(app);
+const db = getFirestore(app);
+
+// 🔐 YOUR ADMIN UID
+const ADMIN_UID = "7uTJYDKKU0YfjMU9t8rkMVZ2EEr2";
+
+// 🔒 PROTECT PAGE
+onAuthStateChanged(auth, (user) => {
+    if (!user || user.uid !== ADMIN_UID) {
+        alert("Access denied");
+        window.location.href = "login.html";
+    }
+});
+
+// 🔄 LOAD ALL USERS
+onSnapshot(collection(db, "users"), (snap) => {
+
+    let html = "";
+
+    snap.forEach(userDoc => {
+
+        const data = userDoc.data();
+
+        (data.withdrawHistory || []).forEach(w => {
+
+            if (w.status === "Pending") {
+
+                html += `
+                <div class="card">
+                    <strong>${data.email || "No Email"}</strong><br>
+                    Amount: $${w.accountNumber}<br>
+                    Bank: ${w.bank}<br>
+                    Account: ${w.number}<br>
+                    Name: ${w.name}<br>
+
+                    <small>${new Date(w.date).toLocaleString()}</small><br>
+
+                    <div class="btn approve" onclick="approve('${userDoc.id}','${w.id}')">Approve</div>
+                    <div class="btn reject" onclick="reject('${userDoc.id}','${w.id}', ${w.amount})">Reject</div>
+                </div>
+                `;
+            }
+
+        });
+
+    });
+
+    document.getElementById("requests").innerHTML = html || "No pending withdrawals";
+
+});
+
+// ✅ APPROVE FUNCTION
+window.approve = async (uid, wid) => {
+
+    const ref = doc(db, "users", uid);
+    const snap = await getDoc(ref);
+
+    if (!snap.exists()) return;
+
+    const data = snap.data();
+
+    const updated = (data.withdrawHistory || []).map(w => {
+        if (w.id === wid) {
+            return {
+                ...w,
+                status: "Successful",
+                processedDate: Date.now()
+            };
+        }
+        return w;
+    });
+
+    await updateDoc(ref, {
+        withdrawHistory: updated
+    });
+
+    alert("✅ Approved successfully!");
+};
+
+// ❌ REJECT FUNCTION (WITH REFUND)
+window.reject = async (uid, wid, amount) => {
+
+    const ref = doc(db, "users", uid);
+    const snap = await getDoc(ref);
+
+    if (!snap.exists()) return;
+
+    const data = snap.data();
+
+    const updated = (data.withdrawHistory || []).map(w => {
+        if (w.id === wid) {
+            return {
+                ...w,
+                status: "Rejected",
+                processedDate: Date.now()
+            };
+        }
+        return w;
+    });
+
+    await updateDoc(ref, {
+        withdrawHistory: updated,
+        balanceMB: increment(amount) // 💰 UPDATED FIELD
+    });
+
+    alert("❌ Rejected & Refunded!");
+};
+</script>
+
+</body>
+</html>

@@ -1,0 +1,354 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+
+background:#F6F7FB;
+color:#222;
+line-height:1.7;
+
+}
+
+.container{
+
+max-width:450px;
+margin:auto;
+padding:20px;
+
+}
+
+/* ======================
+HEADER
+====================== */
+
+.header{
+
+display:flex;
+align-items:center;
+gap:15px;
+margin-bottom:25px;
+
+}
+
+.backBtn{
+
+width:45px;
+height:45px;
+background:#fff;
+border-radius:50%;
+display:flex;
+justify-content:center;
+align-items:center;
+text-decoration:none;
+color:#6C3BFF;
+font-size:18px;
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+transition:.3s;
+
+}
+
+.backBtn:hover{
+
+transform:translateY(-3px);
+
+}
+
+.header h2{
+
+font-size:25px;
+font-weight:700;
+color:#222;
+
+}
+
+.header p{
+
+font-size:13px;
+color:#888;
+margin-top:4px;
+
+}
+
+/* ======================
+CARD
+====================== */
+
+.card{
+
+background:#fff;
+padding:25px;
+border-radius:22px;
+box-shadow:0 12px 30px rgba(0,0,0,.07);
+animation:fade .4s ease;
+
+}
+
+@keyframes fade{
+
+from{
+
+opacity:0;
+transform:translateY(20px);
+
+}
+
+to{
+
+opacity:1;
+transform:translateY(0);
+
+}
+
+}
+
+/* ======================
+ICON
+====================== */
+
+.icon{
+
+width:75px;
+height:75px;
+margin:auto;
+margin-bottom:18px;
+background:#F2EBFF;
+border-radius:50%;
+display:flex;
+justify-content:center;
+align-items:center;
+
+}
+
+.icon i{
+
+font-size:34px;
+color:#6C3BFF;
+
+}
+
+.card h3{
+
+text-align:center;
+font-size:23px;
+margin-bottom:6px;
+color:#6C3BFF;
+
+}
+
+.updated{
+
+text-align:center;
+font-size:13px;
+color:#999;
+margin-bottom:25px;
+
+}
+
+/* ======================
+CONTENT
+====================== */
+
+.card h4{
+
+margin-top:22px;
+margin-bottom:10px;
+font-size:17px;
+color:#6C3BFF;
+
+}
+
+.card p{
+
+font-size:14px;
+color:#555;
+text-align:justify;
+
+}
+/* ======================
+FOOTER
+====================== */
+
+.footer{
+
+margin-top:25px;
+text-align:center;
+
+}
+
+.footer p{
+
+font-size:13px;
+color:#999;
+
+}
+
+/* ======================
+SCROLLBAR
+====================== */
+
+::-webkit-scrollbar{
+
+width:6px;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+background:#6C3BFF;
+border-radius:50px;
+
+}
+
+::-webkit-scrollbar-track{
+
+background:transparent;
+
+}
+
+/* ======================
+RESPONSIVE
+====================== */
+
+@media(max-width:480px){
+
+.container{
+
+padding:15px;
+
+}
+
+.card{
+
+padding:20px;
+
+}
+
+.header h2{
+
+font-size:22px;
+
+}
+
+.card h3{
+
+font-size:20px;
+
+}
+
+.card h4{
+
+font-size:16px;
+
+}
+
+.card p{
+
+font-size:13px;
+
+}
+
+}
+
+/* ======================
+SMOOTH TRANSITIONS
+====================== */
+
+body,
+.card,
+.backBtn,
+.icon,
+h2,
+h3,
+h4,
+p{
+
+transition:.3s ease;
+
+}
+
+/* ======================
+DARK MODE
+====================== */
+
+body.dark{
+
+background:#0F172A;
+color:#fff;
+
+}
+
+body.dark .card{
+
+background:#1E293B;
+box-shadow:none;
+
+}
+
+body.dark .backBtn{
+
+background:#1E293B;
+color:#A78BFA;
+
+}
+
+body.dark .icon{
+
+background:#312E81;
+
+}
+
+body.dark .icon i{
+
+color:#C4B5FD;
+
+}
+
+body.dark .header h2,
+body.dark .card h3,
+body.dark .card h4{
+
+color:#C4B5FD;
+
+}
+
+body.dark .header p,
+body.dark .card p,
+body.dark .updated,
+body.dark .footer p{
+
+color:#CBD5E1;
+
+}
+
+/* ======================
+TEXT SELECTION
+====================== */
+
+::selection{
+
+background:#6C3BFF;
+color:#fff;
+
+}
+
+/* ======================
+LINKS
+====================== */
+
+.card a{
+
+color:#6C3BFF;
+text-decoration:none;
+font-weight:600;
+
+}
+
+.card a:hover{
+
+text-decoration:underline;
+
+}

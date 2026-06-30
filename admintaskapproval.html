@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Admin Task Approval</title>
+
+<link rel="stylesheet" href="admintaskapproval.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- HEADER -->
+
+<div class="header">
+
+<a href="adminallinone.html" class="back">
+
+<i class="fa-solid fa-arrow-left"></i>
+
+</a>
+
+<div>
+
+<h2>Task Approval</h2>
+
+<p>Approve or decline user task submissions</p>
+
+</div>
+
+</div>
+
+<!-- STATS -->
+
+<div class="stats">
+
+<div class="stat">
+
+<h1 id="pendingCount">0</h1>
+
+<p>Pending</p>
+
+</div>
+
+<div class="stat">
+
+<h1 id="approvedToday">0</h1>
+
+<p>Approved Today</p>
+
+</div>
+
+<div class="stat">
+
+<h1 id="declinedToday">0</h1>
+
+<p>Declined Today</p>
+
+</div>
+
+</div>
+
+<!-- REQUESTS -->
+
+<div id="taskRequests" class="requests">
+
+<!-- Loaded from Firebase -->
+
+</div>
+<!-- EMPTY STATE -->
+
+<div id="emptyState" class="emptyState">
+
+<i class="fa-regular fa-folder-open"></i>
+
+<h3>No Pending Tasks</h3>
+
+<p>
+
+New task submissions from users will appear here.
+
+</p>
+
+</div>
+
+<!-- LOADING -->
+
+<div id="loading" class="loading">
+
+<div class="loader"></div>
+
+<p>
+
+Loading task requests...
+
+</p>
+
+</div>
+
+<!-- TOAST -->
+
+<div id="toast" class="toast">
+
+<span id="toastText">
+
+Success
+
+</span>
+
+</div>
+
+<!-- FOOTER -->
+
+<footer>
+
+<p>
+
+© 2026 Data365 Admin Panel
+
+</p>
+
+</footer>
+
+</div>
+
+<script type="module" src="admintaskapproval.js"></script>
+
+</body>
+
+</html>

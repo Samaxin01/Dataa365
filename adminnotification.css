@@ -1,0 +1,557 @@
+/* =====================================
+   DATA365 ADMIN NOTIFICATIONS
+===================================== */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+:root{
+
+--primary:#6C3BFF;
+--primaryLight:#8E6CFF;
+--background:#F5F7FB;
+--card:#FFFFFF;
+--text:#1F2937;
+--sub:#6B7280;
+--border:#ECECEC;
+--green:#22C55E;
+--shadow:0 12px 28px rgba(0,0,0,.08);
+
+}
+
+body{
+
+background:var(--background);
+color:var(--text);
+padding:20px;
+
+}
+
+.app{
+
+max-width:700px;
+margin:auto;
+animation:fade .35s ease;
+
+}
+
+@keyframes fade{
+
+from{
+
+opacity:0;
+transform:translateY(15px);
+
+}
+
+to{
+
+opacity:1;
+transform:none;
+
+}
+
+}
+
+/* ==========================
+HEADER
+========================== */
+
+.header{
+
+display:flex;
+align-items:center;
+gap:15px;
+margin-bottom:25px;
+
+}
+
+.backBtn{
+
+width:46px;
+height:46px;
+border-radius:50%;
+background:white;
+display:flex;
+align-items:center;
+justify-content:center;
+text-decoration:none;
+color:var(--primary);
+box-shadow:var(--shadow);
+
+}
+
+.header h2{
+
+font-size:24px;
+font-weight:700;
+
+}
+
+.header p{
+
+font-size:13px;
+color:var(--sub);
+
+}
+
+/* ==========================
+STATISTICS CARD
+========================== */
+
+.statsCard{
+
+background:linear-gradient(
+135deg,
+var(--primary),
+var(--primaryLight)
+);
+
+color:white;
+padding:25px;
+border-radius:24px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+box-shadow:0 18px 35px rgba(108,59,255,.30);
+margin-bottom:25px;
+
+}
+
+.statsCard h3{
+
+font-size:15px;
+font-weight:400;
+opacity:.9;
+
+}
+
+.statsCard h1{
+
+font-size:42px;
+margin:10px 0;
+
+}
+
+.statsCard p{
+
+font-size:13px;
+opacity:.9;
+
+}
+
+.statsCard i{
+
+font-size:60px;
+opacity:.9;
+
+}
+
+/* ==========================
+FORM CARD
+========================== */
+
+.formCard{
+
+background:white;
+padding:22px;
+border-radius:22px;
+box-shadow:var(--shadow);
+margin-bottom:25px;
+
+}
+
+.formCard h3{
+
+display:flex;
+align-items:center;
+gap:10px;
+color:var(--primary);
+margin-bottom:20px;
+
+}
+
+.inputGroup{
+
+margin-bottom:18px;
+
+}
+
+.inputGroup label{
+
+display:block;
+font-size:14px;
+font-weight:600;
+margin-bottom:8px;
+
+}
+
+.inputGroup input,
+.inputGroup textarea{
+
+width:100%;
+padding:15px;
+border:2px solid var(--border);
+border-radius:15px;
+outline:none;
+font-size:15px;
+background:#FAFAFA;
+transition:.25s;
+
+}
+
+.inputGroup input:focus,
+.inputGroup textarea:focus{
+
+border-color:var(--primary);
+background:white;
+
+}
+
+.inputGroup textarea{
+
+resize:none;
+
+}
+
+/* ==========================
+SEND BUTTON
+========================== */
+
+#sendBtn{
+
+width:100%;
+padding:16px;
+border:none;
+border-radius:16px;
+background:var(--primary);
+color:white;
+font-size:16px;
+font-weight:600;
+cursor:pointer;
+display:flex;
+justify-content:center;
+align-items:center;
+gap:10px;
+transition:.25s;
+
+}
+
+#sendBtn:hover{
+
+transform:translateY(-2px);
+
+}
+
+#sendBtn:disabled{
+
+background:#BDBDBD;
+cursor:not-allowed;
+
+}
+
+/* ==========================
+HISTORY CARD
+========================== */
+
+.historyCard{
+
+background:white;
+padding:22px;
+border-radius:22px;
+box-shadow:var(--shadow);
+
+}
+
+.historyCard h3{
+
+display:flex;
+align-items:center;
+gap:10px;
+color:var(--primary);
+margin-bottom:20px;
+
+}
+/* ==========================
+NOTIFICATION HISTORY
+========================== */
+
+.notificationItem{
+
+background:#FAFAFA;
+border:1px solid var(--border);
+border-left:5px solid var(--primary);
+padding:18px;
+border-radius:18px;
+margin-bottom:18px;
+transition:.25s;
+
+}
+
+.notificationItem:hover{
+
+transform:translateY(-2px);
+
+}
+
+.notificationItem h4{
+
+font-size:17px;
+color:var(--primary);
+margin-bottom:8px;
+
+}
+
+.notificationItem p{
+
+font-size:14px;
+line-height:1.7;
+color:var(--text);
+margin-bottom:12px;
+
+}
+
+.notificationFooter{
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+flex-wrap:wrap;
+gap:10px;
+
+}
+
+.notificationDate{
+
+font-size:13px;
+color:var(--sub);
+
+}
+
+.notificationBadge{
+
+padding:6px 14px;
+background:#F3EDFF;
+color:var(--primary);
+border-radius:20px;
+font-size:12px;
+font-weight:600;
+
+}
+
+/* ==========================
+EMPTY STATE
+========================== */
+
+.emptyState{
+
+display:none;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+text-align:center;
+padding:50px 20px;
+
+}
+
+.emptyState i{
+
+font-size:60px;
+color:var(--primary);
+margin-bottom:18px;
+
+}
+
+.emptyState h3{
+
+font-size:20px;
+margin-bottom:10px;
+
+}
+
+.emptyState p{
+
+font-size:14px;
+color:var(--sub);
+line-height:1.6;
+
+}
+
+/* ==========================
+LOADING
+========================== */
+
+.loadingOverlay{
+
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(255,255,255,.95);
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+z-index:9999;
+
+}
+
+.loader{
+
+width:60px;
+height:60px;
+border:6px solid #ECECEC;
+border-top:6px solid var(--primary);
+border-radius:50%;
+animation:spin .8s linear infinite;
+margin-bottom:18px;
+
+}
+
+@keyframes spin{
+
+100%{
+
+transform:rotate(360deg);
+
+}
+
+}
+
+/* ==========================
+TOAST
+========================== */
+
+.toast{
+
+position:fixed;
+left:50%;
+bottom:30px;
+transform:translateX(-50%) translateY(120px);
+background:var(--green);
+color:white;
+padding:14px 24px;
+border-radius:50px;
+display:flex;
+align-items:center;
+gap:10px;
+box-shadow:var(--shadow);
+transition:.35s;
+z-index:99999;
+
+}
+
+.toast.show{
+
+transform:translateX(-50%) translateY(0);
+
+}
+
+/* ==========================
+FOOTER
+========================== */
+
+footer{
+
+text-align:center;
+margin:35px 0 15px;
+color:var(--sub);
+font-size:13px;
+
+}
+
+/* ==========================
+DARK MODE
+========================== */
+
+body.dark{
+
+--background:#0F172A;
+--card:#1E293B;
+--text:#F8FAFC;
+--sub:#CBD5E1;
+--border:#334155;
+
+}
+
+body.dark .backBtn,
+body.dark .formCard,
+body.dark .historyCard,
+body.dark .notificationItem{
+
+background:var(--card);
+color:var(--text);
+
+}
+
+body.dark .inputGroup input,
+body.dark .inputGroup textarea{
+
+background:#334155;
+border-color:#475569;
+color:white;
+
+}
+
+body.dark .loadingOverlay{
+
+background:rgba(15,23,42,.95);
+
+}
+
+/* ==========================
+RESPONSIVE
+========================== */
+
+@media(max-width:600px){
+
+.statsCard{
+
+flex-direction:column;
+align-items:flex-start;
+gap:18px;
+
+}
+
+.statsCard i{
+
+align-self:flex-end;
+
+}
+
+.notificationFooter{
+
+flex-direction:column;
+align-items:flex-start;
+
+}
+
+}
+
+/* ==========================
+SCROLLBAR
+========================== */
+
+::-webkit-scrollbar{
+
+width:7px;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+background:var(--primary);
+border-radius:20px;
+
+}
+
+::-webkit-scrollbar-track{
+
+background:transparent;
+
+}

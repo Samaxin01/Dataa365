@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Admin Notifications | Data365</title>
+
+<link rel="stylesheet" href="adminnotification.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="app">
+
+<!-- Header -->
+
+<header class="header">
+
+<a href="dashboard.html" class="backBtn">
+
+<i class="fa-solid fa-arrow-left"></i>
+
+</a>
+
+<div>
+
+<h2>Admin Notifications</h2>
+
+<p>Send announcements to all users</p>
+
+</div>
+
+</header>
+
+<!-- Statistics Card -->
+
+<div class="statsCard">
+
+<div>
+
+<h3>Total Notifications</h3>
+
+<h1 id="notificationCount">
+
+0
+
+</h1>
+
+<p>Sent to all Data365 users</p>
+
+</div>
+
+<i class="fa-solid fa-bullhorn"></i>
+
+</div>
+
+<!-- Send Notification -->
+
+<div class="formCard">
+
+<h3>
+
+<i class="fa-solid fa-paper-plane"></i>
+
+Create Notification
+
+</h3>
+
+<form id="notificationForm">
+
+<div class="inputGroup">
+
+<label>Notification Title</label>
+
+<input
+type="text"
+id="title"
+placeholder="Example: New Task Available"
+maxlength="60"
+required>
+
+</div>
+
+<div class="inputGroup">
+
+<label>Notification Message</label>
+
+<textarea
+id="message"
+rows="6"
+placeholder="Write your announcement here..."
+maxlength="500"
+required></textarea>
+
+</div>
+
+<button
+type="submit"
+id="sendBtn">
+
+<i class="fa-solid fa-paper-plane"></i>
+
+Send Notification
+
+</button>
+
+</form>
+
+</div>
+
+<!-- Recently Sent -->
+
+<div class="historyCard">
+
+<h3>
+
+<i class="fa-solid fa-clock-rotate-left"></i>
+
+Recently Sent
+
+</h3>
+
+<div id="notificationHistory">
+
+<!-- Firebase loads notifications here -->
+
+</div>
+
+<div id="emptyState" class="emptyState">
+
+<i class="fa-regular fa-bell-slash"></i>
+
+<h3>No Notifications Yet</h3>
+
+<p>
+
+Notifications you send will appear here.
+
+</p>
+
+</div>
+<!-- Loading Overlay -->
+
+<div id="loadingOverlay" class="loadingOverlay">
+
+<div class="loader"></div>
+
+<h3>Loading...</h3>
+
+<p>Please wait...</p>
+
+</div>
+
+<!-- Toast Notification -->
+
+<div id="toast" class="toast">
+
+<i class="fa-solid fa-circle-check"></i>
+
+<span id="toastText">
+
+Notification Sent Successfully
+
+</span>
+
+</div>
+
+<!-- Footer -->
+
+<footer>
+
+<p>
+
+Data365 Admin Panel • Notifications Center
+
+</p>
+
+</footer>
+
+</div>
+
+<script type="module" src="adminnotification.js"></script>
+
+</body>
+
+</html>

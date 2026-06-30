@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Data365 Admin</title>
+
+<style>
+:root{
+    --purple:#6C2BD9;
+    --light-purple:#A855F7;
+    --bg:#ffffff;
+    --text:#1F1F1F;
+    --gray:#6B7280;
+    --card:#F8F7FF;
+    --border:#E5E7EB;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+}
+
+/* container */
+.container {
+    max-width: 520px;
+    margin: auto;
+    padding: 20px;
+}
+
+/* header */
+h2 {
+    text-align: center;
+    color: var(--purple);
+    margin-bottom: 20px;
+}
+
+/* inputs */
+input, select {
+    width: 100%;
+    padding: 14px;
+    margin: 10px 0;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    background: #fff;
+    color: var(--text);
+    outline: none;
+    font-size: 14px;
+}
+
+input:focus, select:focus {
+    border-color: var(--purple);
+    box-shadow: 0 0 0 3px rgba(108,43,217,0.15);
+}
+
+/* button */
+button {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, var(--purple), var(--light-purple));
+    border: none;
+    border-radius: 12px;
+    font-weight: bold;
+    color: #fff;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+button:hover {
+    transform: scale(1.02);
+}
+
+/* message */
+.msg {
+    text-align: center;
+    margin-top: 10px;
+    color: var(--purple);
+    font-weight: 500;
+}
+
+/* user cards */
+.card {
+    background: var(--card);
+    padding: 14px;
+    margin-top: 12px;
+    border-radius: 14px;
+    border: 1px solid var(--border);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+}
+
+.card strong {
+    color: var(--purple);
+}
+
+h3 {
+    margin-top: 25px;
+    color: var(--purple);
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Data365 Admin Panel 💜</h2>
+
+<input type="text" id="uid" placeholder="User UID">
+<input type="number" id="amount" placeholder="Amount">
+
+<select id="action">
+    <option value="credit">Credit</option>
+    <option value="debit">Debit</option>
+</select>
+
+<button onclick="updateBalance()">Update Balance</button>
+
+<div class="msg" id="msg"></div>
+
+<h3>All Users</h3>
+<div id="users"></div>
+
+</div>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+import { getFirestore, collection, getDocs, doc, updateDoc, increment } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+const app = initializeApp({
+  apiKey: "AIzaSyDKDO_xhyOpMIw_z-FWiubqeBcQdPcpbHY",
+  authDomain: "data365-98916.firebaseapp.com",
+  projectId: "data365-98916",
+});
+
+const auth = getAuth(app);
+const db = getFirestore(app);
+
+const ADMIN_EMAIL = "data365official@gmail.com";
+
+onAuthStateChanged(auth, async (user) => {
+
+    if (!user) {
+        window.location.href = "login.html";
+        return;
+    }
+
+    if (user.email !== ADMIN_EMAIL) {
+        alert("Access denied ❌");
+        window.location.href = "dashboard.html";
+        return;
+    }
+
+    loadUsers();
+});
+
+async function loadUsers() {
+    const container = document.getElementById("users");
+    container.innerHTML = "";
+
+    const snapshot = await getDocs(collection(db, "users"));
+
+    snapshot.forEach(docSnap => {
+        const data = docSnap.data();
+
+        const div = document.createElement("div");
+        div.className = "card";
+
+        div.innerHTML = `
+            <strong>${data.email}</strong><br>
+            UID: ${docSnap.id}<br>
+            Balance: ${Number(data.balanceMB || 0).toLocaleString()} MB
+        `;
+
+        container.appendChild(div);
+    });
+}
+
+window.updateBalance = async function () {
+
+    const uid = document.getElementById("uid").value;
+    const amount = Number(document.getElementById("amount").value);
+    const action = document.getElementById("action").value;
+    const msg = document.getElementById("msg");
+
+    if (!uid || !amount) {
+        msg.innerText = "Fill all fields ❌";
+        return;
+    }
+
+    const userRef = doc(db, "users", uid);
+
+    try {
+        if (action === "credit") {
+            await updateDoc(userRef, {
+                balanceMB: increment(amount)
+            });
+        } else {
+            await updateDoc(userRef, {
+                balanceMB: increment(-amount)
+            });
+        }
+
+        msg.innerText = "Balance updated successfully ✅";
+        loadUsers();
+
+    } catch (err) {
+        console.error(err);
+        msg.innerText = "Error updating balance ❌";
+    }
+};
+</script>
+
+</body>
+</html>

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Notifications | Data365</title>
+
+<link rel="stylesheet"
+href="notifications.css">
+
+<link rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="app">
+
+<!-- Header -->
+
+<header class="header">
+
+<a href="dashboard.html" class="backBtn">
+
+<i class="fa-solid fa-arrow-left"></i>
+
+</a>
+
+<div>
+
+<h2>Notifications</h2>
+
+<p>Latest announcements from Data365</p>
+
+</div>
+
+</header>
+
+<!-- Notification Counter -->
+
+<div class="topCard">
+
+<div>
+
+<h3>Total Notifications</h3>
+
+<h1 id="notificationCount">
+
+loading...
+
+</h1>
+
+</div>
+
+<i class="fa-solid fa-bell"></i>
+
+</div>
+
+<!-- Notification List -->
+
+<div id="notificationList">
+
+<!-- Firebase notifications will load here -->
+
+</div>
+
+<!-- Empty State -->
+
+<div id="emptyState" class="emptyState">
+
+<i class="fa-regular fa-bell-slash"></i>
+
+<h3>No Notifications</h3>
+
+<p>
+
+You don't have any notifications yet.
+
+</p>
+
+</div>
+<!-- Loading Overlay -->
+
+<div id="loadingOverlay" class="loadingOverlay">
+
+<div class="loader"></div>
+
+<h3>Loading...</h3>
+
+<p>Please wait</p>
+
+</div>
+
+<!-- Toast -->
+
+<div id="toast" class="toast">
+
+<i class="fa-solid fa-circle-check"></i>
+
+<span id="toastText">
+
+Success
+
+</span>
+
+</div>
+
+<!-- Bottom Navigation -->
+
+<nav class="bottomNav">
+
+<a href="dashboard.html">
+
+<i class="fa-solid fa-house"></i>
+
+<span>Home</span>
+
+</a>
+
+<a href="tasks.html">
+
+<i class="fa-solid fa-list-check"></i>
+
+<span>Tasks</span>
+
+</a>
+
+<a href="refer.html">
+
+<i class="fa-solid fa-user-group"></i>
+
+<span>Refer</span>
+
+</a>
+
+<a href="profile.html">
+
+<i class="fa-solid fa-user"></i>
+
+<span>Profile</span>
+
+</a>
+
+</nav>
+
+<footer>
+
+<p>
+
+Data365 v1.0
+
+</p>
+
+</footer>
+
+</div>
+
+<script type="module" src="notifications.js"></script>
+
+</body>
+
+</html>
