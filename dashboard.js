@@ -200,21 +200,18 @@ function loadUserData(user) {
                 .charAt(0)
                 .toUpperCase();
 
-            // Balance
+// ======================
+// BALANCE
+// ======================
 
-            const balance =
-                Number(
-                    data.balanceMB || 0
-                );
+const balance =
+    Number(data.balanceMB || 0);
 
-            balanceEl.textContent =
-                balance + "MB";
+balanceEl.textContent =
+    balance + "MB";
 
-            balanceGBEl.textContent =
-                (
-                    balance / 1000
-                ).toFixed(2)
-                + " GB";
+balanceGBEl.textContent =
+    (balance / 1000).toFixed(2) + " GB";
 
             // Joined Date
 
@@ -251,13 +248,25 @@ function loadUserData(user) {
             earnedEl.textContent =
                 balance + "MB";
 
-            // Task Stats
+// ======================
+// TASK STATS
+// ======================
 
-            completedTasksEl.textContent =
-                data.completedTasks || 0;
+const history = data.taskHistory || [];
 
-            pendingTasksEl.textContent =
-                data.pendingTasks || 0;
+const completed =
+history.filter(
+task => task.status === "Approved"
+).length;
+
+const pending =
+history.filter(
+task => task.status === "Pending"
+).length;
+
+completedTasksEl.textContent = completed;
+
+pendingTasksEl.textContent = pending;
 
         }
     );

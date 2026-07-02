@@ -1,0 +1,334 @@
+/* ===========================
+   DATA365 TASK UPLOAD
+=========================== */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:#f5f6fb;
+color:#222;
+}
+
+.container{
+max-width:700px;
+margin:auto;
+padding:20px;
+}
+
+/* ===========================
+HEADER
+=========================== */
+
+.header{
+display:flex;
+align-items:center;
+gap:15px;
+margin-bottom:25px;
+}
+
+.back{
+width:45px;
+height:45px;
+border-radius:50%;
+background:#fff;
+display:flex;
+align-items:center;
+justify-content:center;
+text-decoration:none;
+font-size:18px;
+color:#7B2FF7;
+box-shadow:0 5px 15px rgba(0,0,0,.08);
+transition:.3s;
+}
+
+.back:hover{
+transform:scale(1.08);
+}
+
+.header h2{
+font-size:23px;
+font-weight:700;
+color:#7B2FF7;
+}
+
+.header p{
+color:#777;
+font-size:14px;
+}
+
+/* ===========================
+HERO
+=========================== */
+
+.heroCard{
+background:linear-gradient(135deg,#7B2FF7,#9747FF);
+color:#fff;
+padding:22px;
+border-radius:22px;
+margin-bottom:25px;
+box-shadow:0 10px 25px rgba(123,47,247,.25);
+}
+
+.heroCard h3{
+margin-bottom:10px;
+font-size:20px;
+}
+
+.heroCard p{
+line-height:1.7;
+font-size:14px;
+}
+
+.sectionTitle{
+margin:25px 0 15px;
+font-size:18px;
+color:#7B2FF7;
+}
+
+/* ===========================
+SERVICES
+=========================== */
+
+.services{
+display:grid;
+grid-template-columns:1fr;
+gap:15px;
+}
+
+.service{
+background:#fff;
+border-radius:18px;
+padding:16px;
+display:flex;
+align-items:center;
+gap:15px;
+cursor:pointer;
+transition:.3s;
+box-shadow:0 5px 18px rgba(0,0,0,.08);
+border:2px solid transparent;
+}
+
+.service:hover{
+transform:translateY(-3px);
+border-color:#7B2FF7;
+}
+
+.service.active{
+border-color:#7B2FF7;
+background:#f4edff;
+}
+
+.icon{
+width:58px;
+height:58px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:25px;
+color:#fff;
+flex-shrink:0;
+}
+
+.service h4{
+font-size:16px;
+margin-bottom:5px;
+}
+
+.service p{
+font-size:14px;
+color:#777;
+font-weight:600;
+}
+
+/* Platform Colors */
+
+.whatsapp .icon{
+background:#25D366;
+}
+
+.telegram .icon{
+background:#229ED9;
+}
+
+.instagram .icon{
+background:linear-gradient(45deg,#F58529,#DD2A7B,#8134AF,#515BD4);
+}
+
+.facebook .icon{
+background:#ff3b30;
+}
+
+.twitter .icon{
+background:#111;
+}
+
+.tiktok .icon{
+background:black;
+}
+
+/* ===========================
+SELECT
+=========================== */
+
+select{
+width:100%;
+padding:15px;
+border-radius:15px;
+border:2px solid #ddd;
+outline:none;
+font-size:15px;
+margin-bottom:20px;
+background:#fff;
+transition:.3s;
+}
+
+select:focus{
+border-color:#7B2FF7;
+}
+
+/* ===========================
+SUMMARY
+=========================== */
+
+.summary{
+background:#fff;
+padding:20px;
+border-radius:18px;
+box-shadow:0 5px 18px rgba(0,0,0,.08);
+margin-bottom:25px;
+}
+
+.summary h3{
+color:#7B2FF7;
+margin-bottom:15px;
+}
+
+.summary p{
+margin:10px 0;
+font-size:15px;
+}
+
+.summary span{
+font-weight:700;
+color:#7B2FF7;
+}
+
+/* ===========================
+BUTTON
+=========================== */
+
+#telegramBtn{
+width:100%;
+padding:16px;
+border:none;
+border-radius:18px;
+background:#229ED9;
+color:#fff;
+font-size:17px;
+font-weight:600;
+cursor:pointer;
+transition:.3s;
+display:flex;
+align-items:center;
+justify-content:center;
+gap:10px;
+box-shadow:0 8px 20px rgba(34,158,217,.3);
+}
+
+#telegramBtn:hover{
+transform:translateY(-2px);
+background:#1488c8;
+}
+
+#telegramBtn i{
+font-size:22px;
+}
+
+/* ===========================
+NOTICE
+=========================== */
+
+.notice{
+margin-top:25px;
+background:#fff8e7;
+padding:18px;
+border-left:5px solid #ffb400;
+border-radius:15px;
+font-size:14px;
+line-height:1.7;
+color:#555;
+}
+
+/* ===========================
+ANIMATION
+=========================== */
+
+@keyframes fadeUp{
+
+from{
+opacity:0;
+transform:translateY(25px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+
+.heroCard,
+.service,
+.summary,
+#telegramBtn{
+animation:fadeUp .4s ease;
+}
+
+/* ===========================
+SCROLLBAR
+=========================== */
+
+::-webkit-scrollbar{
+width:6px;
+}
+
+::-webkit-scrollbar-thumb{
+background:#7B2FF7;
+border-radius:20px;
+}
+
+/* ===========================
+RESPONSIVE
+=========================== */
+
+@media(max-width:600px){
+
+.container{
+padding:15px;
+}
+
+.header h2{
+font-size:20px;
+}
+
+.heroCard{
+padding:18px;
+}
+
+.service{
+padding:14px;
+}
+
+.icon{
+width:50px;
+height:50px;
+font-size:22px;
+}
+
+}

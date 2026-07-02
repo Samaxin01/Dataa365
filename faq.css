@@ -1,0 +1,297 @@
+/* ==========================
+   DATA365 FAQ
+========================== */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:#f5f7fb;
+color:#222;
+}
+
+.container{
+max-width:750px;
+margin:auto;
+padding:20px;
+}
+
+/* ==========================
+HEADER
+========================== */
+
+.header{
+display:flex;
+align-items:center;
+gap:15px;
+margin-bottom:20px;
+}
+
+.back{
+width:45px;
+height:45px;
+background:#fff;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+text-decoration:none;
+color:#7B2FF7;
+font-size:18px;
+box-shadow:0 8px 20px rgba(0,0,0,.08);
+transition:.3s;
+}
+
+.back:hover{
+transform:scale(1.08);
+}
+
+.header h2{
+color:#7B2FF7;
+font-size:24px;
+font-weight:700;
+}
+
+.header p{
+color:#777;
+font-size:14px;
+}
+
+/* ==========================
+HERO
+========================== */
+
+.hero{
+background:linear-gradient(135deg,#7B2FF7,#9747FF);
+color:#fff;
+padding:25px;
+border-radius:22px;
+margin-bottom:20px;
+box-shadow:0 12px 28px rgba(123,47,247,.25);
+animation:fadeUp .4s ease;
+}
+
+.hero h2{
+margin-bottom:10px;
+}
+
+.hero p{
+line-height:1.7;
+font-size:14px;
+}
+
+/* ==========================
+SEARCH
+========================== */
+
+.searchBox{
+background:#fff;
+display:flex;
+align-items:center;
+gap:12px;
+padding:15px 18px;
+border-radius:16px;
+box-shadow:0 6px 18px rgba(0,0,0,.08);
+margin-bottom:20px;
+}
+
+.searchBox i{
+color:#7B2FF7;
+font-size:18px;
+}
+
+.searchBox input{
+flex:1;
+border:none;
+outline:none;
+font-size:15px;
+background:transparent;
+}
+
+/* ==========================
+FAQ
+========================== */
+
+.faq{
+background:#fff;
+border-radius:18px;
+margin-bottom:15px;
+box-shadow:0 8px 20px rgba(0,0,0,.08);
+overflow:hidden;
+transition:.3s;
+animation:fadeUp .4s ease;
+}
+
+.question{
+padding:18px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+cursor:pointer;
+font-weight:600;
+font-size:15px;
+color:#333;
+transition:.3s;
+}
+
+.question:hover{
+background:#f6f0ff;
+}
+
+.question span{
+font-size:22px;
+color:#7B2FF7;
+transition:.3s;
+}
+
+.answer{
+max-height:0;
+overflow:hidden;
+padding:0 18px;
+color:#666;
+line-height:1.8;
+font-size:14px;
+transition:max-height .35s ease,padding .35s ease;
+}
+
+.faq.active .answer{
+max-height:250px;
+padding:0 18px 18px;
+}
+
+.faq.active .question span{
+transform:rotate(45deg);
+}
+
+/* ==========================
+SUPPORT CARD
+========================== */
+
+.supportCard{
+background:#fff;
+padding:25px;
+border-radius:22px;
+margin-top:25px;
+text-align:center;
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+animation:fadeUp .4s ease;
+}
+
+.supportCard h3{
+color:#7B2FF7;
+margin-bottom:8px;
+}
+
+.supportCard p{
+color:#666;
+margin-bottom:20px;
+}
+
+/* ==========================
+BUTTONS
+========================== */
+
+.supportBtn{
+display:flex;
+align-items:center;
+justify-content:center;
+gap:10px;
+text-decoration:none;
+padding:15px;
+border-radius:16px;
+font-weight:600;
+margin-top:12px;
+transition:.3s;
+}
+
+.supportBtn i{
+font-size:20px;
+}
+
+.email{
+background:#7B2FF7;
+color:#fff;
+}
+
+.email:hover{
+background:#6420d8;
+transform:translateY(-2px);
+}
+
+.telegram{
+background:#229ED9;
+color:#fff;
+}
+
+.telegram:hover{
+background:#0d8bc7;
+transform:translateY(-2px);
+}
+
+/* ==========================
+SCROLLBAR
+========================== */
+
+::-webkit-scrollbar{
+width:6px;
+}
+
+::-webkit-scrollbar-thumb{
+background:#7B2FF7;
+border-radius:20px;
+}
+
+/* ==========================
+ANIMATION
+========================== */
+
+@keyframes fadeUp{
+
+from{
+opacity:0;
+transform:translateY(20px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+
+/* ==========================
+RESPONSIVE
+========================== */
+
+@media(max-width:600px){
+
+.container{
+padding:15px;
+}
+
+.header h2{
+font-size:20px;
+}
+
+.hero{
+padding:20px;
+}
+
+.question{
+font-size:14px;
+padding:16px;
+}
+
+.answer{
+font-size:13px;
+}
+
+.supportBtn{
+padding:14px;
+}
+
+}
